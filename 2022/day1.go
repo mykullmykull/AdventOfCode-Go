@@ -12,11 +12,9 @@ func main() {
 
 func topThreeCalories(calStrs []string) int {
 	calStrs = append(calStrs, "")
-	var top3 []int = []int{0, 0, 0}
-	var calories int
+	top3 := []int{0, 0, 0}
+	calories := 0
 	for _, v := range calStrs {
-		fmt.Println()
-		fmt.Printf("string: %v\n", v)
 		if v == "" {
 			min := top3[0]
 			if calories > min {
@@ -28,15 +26,13 @@ func topThreeCalories(calStrs []string) int {
 			vint, _ := strconv.Atoi(v)
 			calories = calories + vint
 		}
-		fmt.Printf("top3 %v\n", top3)
-		fmt.Printf("calories: %v\n", calories)
 	}
 	return top3[0] + top3[1] + top3[2]
 }
 
 func maxCalories(calStrs []string) int {
-	var max int
-	var calories int
+	max := 0
+	calories := 0
 	for _, v := range calStrs {
 		if v == "" {
 			if calories > max {
