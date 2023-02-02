@@ -6,6 +6,7 @@ import (
 	"github.com/mykullmykull/AdventOfCode-Go/tree/master/2022/day1"
 	"github.com/mykullmykull/AdventOfCode-Go/tree/master/2022/day2"
 	"github.com/mykullmykull/AdventOfCode-Go/tree/master/2022/day3"
+	"github.com/mykullmykull/AdventOfCode-Go/tree/master/2022/day4"
 )
 
 func main() {
@@ -32,4 +33,12 @@ func main() {
 	fmt.Println()
 	fmt.Print("day3b: ")
 	fmt.Print(day3.SumPrioritiesOfBadges(day3.Real))
+
+	fmt.Println()
+	fmt.Print("day4a: ")
+	fmt.Print(day4.CountOverlaps(day4.Real, 1))
+
+	fmt.Println()
+	fmt.Print("day4b: ")
+	fmt.Print(day4.CountOverlaps(day4.Real, 2))
 }
