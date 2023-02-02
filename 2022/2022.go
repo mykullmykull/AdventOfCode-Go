@@ -8,6 +8,7 @@ import (
 	"github.com/mykullmykull/AdventOfCode-Go/tree/master/2022/day3"
 	"github.com/mykullmykull/AdventOfCode-Go/tree/master/2022/day4"
 	"github.com/mykullmykull/AdventOfCode-Go/tree/master/2022/day5"
+	"github.com/mykullmykull/AdventOfCode-Go/tree/master/2022/day6"
 )
 
 func main() {
@@ -50,4 +51,12 @@ func main() {
 	fmt.Println()
 	fmt.Print("day5b: ")
 	fmt.Print(day5.TopCratesAfterMoves(day5.RealCrates, day5.RealMoves, 2))
+
+	fmt.Println()
+	fmt.Print("day6a: ")
+	fmt.Print(day6.FirstIndexAfterFourUnique(day6.Real))
+
+	fmt.Println()
+	fmt.Print("day6b: ")
+	fmt.Print(day6.FirstIndexAfterFourteenUnique(day6.Real))
 }
