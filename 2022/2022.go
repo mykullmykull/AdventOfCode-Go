@@ -7,6 +7,7 @@ import (
 	"github.com/mykullmykull/AdventOfCode-Go/tree/master/2022/day2"
 	"github.com/mykullmykull/AdventOfCode-Go/tree/master/2022/day3"
 	"github.com/mykullmykull/AdventOfCode-Go/tree/master/2022/day4"
+	"github.com/mykullmykull/AdventOfCode-Go/tree/master/2022/day5"
 )
 
 func main() {
@@ -41,4 +42,12 @@ func main() {
 	fmt.Println()
 	fmt.Print("day4b: ")
 	fmt.Print(day4.CountOverlaps(day4.Real, 2))
+
+	fmt.Println()
+	fmt.Print("day5a: ")
+	fmt.Print(day5.TopCratesAfterMoves(day5.RealCrates, day5.RealMoves, 1))
+
+	fmt.Println()
+	fmt.Print("day5b: ")
+	fmt.Print(day5.TopCratesAfterMoves(day5.RealCrates, day5.RealMoves, 2))
 }
