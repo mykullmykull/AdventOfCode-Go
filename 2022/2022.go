@@ -59,4 +59,10 @@ func main() {
 	fmt.Println()
 	fmt.Print("day6b: ")
 	fmt.Print(day6.FirstIndexAfterFourteenUnique(day6.Real))
+
+	/*
+		fmt.Println()
+		fmt.Print("day7a: ")
+		fmt.Print(day7.sumSizeOfBigDirectories(day7.test))
+	*/
 }

@@ -14,6 +14,8 @@ replace github.com/mykullmykull/AdventOfCode-Go/tree/master/2022/day5 => ./day5
 
 replace github.com/mykullmykull/AdventOfCode-Go/tree/master/2022/day6 => ./day6
 
+replace github.com/mykullmykull/AdventOfCode-Go/tree/master/2022/day7 => ./day7
+
 require (
 	github.com/mykullmykull/AdventOfCode-Go/tree/master/2022/day1 v0.0.0-00010101000000-000000000000
 	github.com/mykullmykull/AdventOfCode-Go/tree/master/2022/day2 v0.0.0-00010101000000-000000000000
