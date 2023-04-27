@@ -10,7 +10,7 @@ type directory struct {
 	files  []file
 }
 
-var test = []string{
+var Test = []string{
 	"$ cd /",
 	"$ ls",
 	"dir a",

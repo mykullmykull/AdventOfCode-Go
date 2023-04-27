@@ -1,5 +1,5 @@
 package day7
 
-func sumSizeOfBigDirectories(input []string) int {
+func SumSizeOfBigDirectories(input []string) int {
 	return 1
 }

@@ -9,6 +9,7 @@ import (
 	"github.com/mykullmykull/AdventOfCode-Go/tree/master/2022/day4"
 	"github.com/mykullmykull/AdventOfCode-Go/tree/master/2022/day5"
 	"github.com/mykullmykull/AdventOfCode-Go/tree/master/2022/day6"
+	"github.com/mykullmykull/AdventOfCode-Go/tree/master/2022/day7"
 )
 
 func main() {
@@ -60,9 +61,7 @@ func main() {
 	fmt.Print("day6b: ")
 	fmt.Print(day6.FirstIndexAfterFourteenUnique(day6.Real))
 
-	/*
-		fmt.Println()
-		fmt.Print("day7a: ")
-		fmt.Print(day7.sumSizeOfBigDirectories(day7.test))
-	*/
+	fmt.Println()
+	fmt.Print("day7a: ")
+	fmt.Print(day7.SumSizeOfBigDirectories(day7.Test))
 }
