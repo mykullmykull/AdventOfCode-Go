@@ -1,4 +1,4 @@
-package day11
+package day11FirstTry
 
 import (
 	"testing"
@@ -8,7 +8,7 @@ import (
 
 func Test_runA(t *testing.T) {
 	assert.Equal(t, expected1, runA(test1))
-	// fmt.Printf("a: %d\n", runA(real, 17, 61))
+	// fmt.Printf("a: %d\n", runA(real))
 }
 
 // func Test_runB(t *testing.T) {
