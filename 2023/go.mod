@@ -1,4 +1,4 @@
-module goAoc2016
+module goAoc2023
 
 go 1.17
 
