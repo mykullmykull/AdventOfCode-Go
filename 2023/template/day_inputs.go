@@ -1,7 +1,11 @@
 package template
 
-var testInput = ""
+var testInput = []string{
+	"",
+}
 
 var expected = -1
 
-var realInput = ""
+var realInput = []string{
+	"",
+}
