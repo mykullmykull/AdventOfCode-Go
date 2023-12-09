@@ -1,5 +1,5 @@
 package template
 
-func runbB(input []string) int {
+func runB(input []string) int {
 	return 0
 }
