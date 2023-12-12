@@ -17,5 +17,5 @@ func Test_runB(t *testing.T) {
 	assert.Equal(t, expected4, runB(testInput4))
 	assert.Equal(t, expected5, runB(testInput5))
 	assert.Equal(t, expected6, runB(testInput6))
-	// 	fmt.Printf("day10b: %d\n", runB(realInput))
+	// fmt.Printf("day10b: %d\n", runB(realInput))
 }
