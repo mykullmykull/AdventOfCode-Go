@@ -27,27 +27,53 @@ func runB(input []string) int {
 	expanded := expandRows(inputWithOnlyLoop)
 	expanded = expandCols(expanded)
 
-	enclosedCount := 0
 	for r, row := range input {
 		for c, _ := range row {
 			char := inputWithOnlyLoop[r][c]
 			if char != '.' {
 				continue
 			}
-			fmt.Printf("\nr: %d; c: %d\n", r, c)
 			expandedP := rowCol{r * 2, c * 2}
+			expandedChar := expanded[expandedP.row][expandedP.col]
+			if expandedChar != '.' {
+				continue
+			}
+
+			fmt.Printf("\nexpandedP.row: %d; expandedP.col: %d, char: %c\n", expandedP.row, expandedP.col, expandedChar)
 
 			// need a copy that we can mark up for each point
 			copyExpanded := make([]string, len(expanded))
 			copy(copyExpanded, expanded)
+			stillUnknown := 0
 			if isEnclosed(expandedP, copyExpanded) {
-				enclosedCount++
+				fmt.Println("enclosed")
+				markPointsOnImage([]rowCol{{expandedP.row, expandedP.col}}, expanded, "I")
+			} else {
+				fmt.Println("not enclosed")
+				markPointsOnImage([]rowCol{{expandedP.row, expandedP.col}}, expanded, "O")
 			}
-			fmt.Printf("enclosed: %d\n", enclosedCount)
+
+			fmt.Println("updating connected")
+			changed := 0
+			for {
+				expanded, stillUnknown, changed = markConnectedPoints(expandedP, expanded)
+				if changed == 0 {
+					break
+				}
+			}
+
+			fmt.Println()
+			for _, line := range expanded {
+				fmt.Println(line)
+			}
+
+			if stillUnknown == 0 {
+				return countFromUnexpandedPoints(inputWithOnlyLoop, expanded)
+			}
 		}
 	}
 
-	return enclosedCount
+	return countFromUnexpandedPoints(inputWithOnlyLoop, expanded)
 }
 
 func mapLoopIds(loopIds map[point]int, currentTiles []tile, input []string) map[point]int {
@@ -126,18 +152,28 @@ func expandCols(input []string) []string {
 }
 
 func isEnclosed(p rowCol, image []string) bool {
+	if hasStraightShotOut(p, image) {
+		return false
+	}
+
 	currentPoints := []rowCol{p}
 	for {
-		if hasStraightShotOut(p, image) {
-			fmt.Printf("has straight shot\n")
-			return false
+		// fmt.Printf("  p: %v, current points: %d\n", p, len(currentPoints))
+		// for _, line := range image {
+		// 	fmt.Println(line)
+		// }
+
+		for _, cp := range currentPoints {
+			if hasStraightShotOut(cp, image) {
+				return false
+			}
 		}
 
 		if hasEscaped(currentPoints, image) {
 			return false
 		}
 
-		image = markPointsOnImage(currentPoints, image)
+		image = markPointsOnImage(currentPoints, image, "+")
 
 		currentPoints = expand(currentPoints, image)
 		if len(currentPoints) == 0 {
@@ -147,63 +183,57 @@ func isEnclosed(p rowCol, image []string) bool {
 }
 
 func hasStraightShotOut(p rowCol, image []string) bool {
-	// try north
-	escapes := true
-	for r := p.row; r >= 0; r-- {
-		if image[p.row][p.col] != '.' {
-			fmt.Println("not north")
-			escapes = false
-			break
-		}
-	}
-	if escapes {
-		return true
+	return canEscapeStraight(p, image, n) ||
+		canEscapeStraight(p, image, e) ||
+		canEscapeStraight(p, image, w) ||
+		canEscapeStraight(p, image, s)
+}
+
+func canEscapeStraight(p rowCol, image []string, direction direction) bool {
+	rowChange := 0
+	colChange := 0
+
+	switch direction {
+	case n:
+		rowChange = -1
+	case e:
+		colChange = 1
+	case w:
+		colChange = -1
+	case s:
+		rowChange = 1
 	}
 
-	// try south
-	escapes = true
-	for r := p.row; r < len(image); r++ {
-		if image[p.row][p.col] != '.' {
-			fmt.Println("not south")
-			escapes = false
-			break
+	for {
+		if hasEscaped([]rowCol{p}, image) {
+			return true
 		}
-	}
-	if escapes {
-		return true
-	}
 
-	// try east
-	escapes = true
-	for r := p.col; r < len(image[0]); r++ {
 		if image[p.row][p.col] != '.' {
-			fmt.Println("not east")
-			escapes = false
-			break
+			return false
 		}
-	}
-	if escapes {
-		return true
-	}
 
-	// try west
-	for r := p.col; r >= 0; r-- {
-		if image[p.row][p.col] != '.' {
-			fmt.Println("not west")
-			escapes = false
-			break
-		}
+		p = rowCol{p.row + rowChange, p.col + colChange}
 	}
-	return escapes
 }
 
 func hasEscaped(points []rowCol, image []string) bool {
 	maxRow := len(image) - 1
 	maxCol := len(image[0]) - 1
 	for _, p := range points {
-		if image[p.row][p.col] != '.' {
+		char := string(image[p.row][p.col])
+		if char == "O" {
+			return true
+		}
+
+		if char == "I" {
+			return false
+		}
+
+		if char != "." {
 			continue
 		}
+
 		if p.row == 0 ||
 			p.row == maxRow ||
 			p.col == 0 ||
@@ -214,10 +244,10 @@ func hasEscaped(points []rowCol, image []string) bool {
 	return false
 }
 
-func markPointsOnImage(points []rowCol, image []string) []string {
+func markPointsOnImage(points []rowCol, image []string, char string) []string {
 	for _, p := range points {
 		row := image[p.row]
-		image[p.row] = row[:p.col] + "+" + row[p.col+1:]
+		image[p.row] = row[:p.col] + char + row[p.col+1:]
 	}
 	return image
 }
@@ -253,4 +283,86 @@ func expand(points []rowCol, image []string) []rowCol {
 
 func isNew(p rowCol, image []string) bool {
 	return image[p.row][p.col] == '.'
+}
+
+func markConnectedPoints(p rowCol, image []string) ([]string, int, int) {
+	newImage := make([]string, len(image))
+	unknown := 0
+	newEnclosed := 0
+	changed := 0
+	for r, row := range image {
+		newRow := ""
+		for c, _ := range row {
+			char := string(image[r][c])
+			if char != "." {
+				newRow += char
+				continue
+			}
+
+			nP := rowCol{r - 1, c}
+			eP := rowCol{r, c + 1}
+			wP := rowCol{r, c - 1}
+			sP := rowCol{r + 1, c}
+
+			if r > 0 {
+				nChar := string(image[nP.row][nP.col])
+				if strings.Contains("IO", nChar) {
+					char = nChar
+				}
+			}
+
+			if c < len(row)-1 {
+				eChar := string(image[eP.row][eP.col])
+				if strings.Contains("IO", eChar) {
+					char = eChar
+				}
+			}
+
+			if c > 0 {
+				wChar := string(image[wP.row][wP.col])
+				if strings.Contains("IO", wChar) {
+					char = wChar
+				}
+			}
+
+			if r < len(image)-1 {
+				sChar := string(image[sP.row][sP.col])
+				if strings.Contains("IO", sChar) {
+					char = sChar
+				}
+			}
+
+			if char == "I" {
+				newEnclosed++
+			}
+
+			if char == "." {
+				unknown++
+			}
+
+			if strings.Contains("IO", char) {
+				changed++
+			}
+
+			newRow += char
+		}
+		newImage[r] = newRow
+	}
+	return newImage, unknown, changed
+}
+
+func countFromUnexpandedPoints(original []string, expanded []string) int {
+	enclosedCount := 0
+	for r, row := range original {
+		for c, _ := range row {
+			char := original[r][c]
+			if char == '.' {
+				expandedP := rowCol{r * 2, c * 2}
+				if expanded[expandedP.row][expandedP.col] == 'I' {
+					enclosedCount++
+				}
+			}
+		}
+	}
+	return enclosedCount
 }

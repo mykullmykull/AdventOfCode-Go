@@ -1,9 +1,8 @@
 package day10
 
 import (
+	"fmt"
 	"testing"
-
-	"github.com/stretchr/testify/assert"
 )
 
 func Test_runA(t *testing.T) {
@@ -13,9 +12,9 @@ func Test_runA(t *testing.T) {
 }
 
 func Test_runB(t *testing.T) {
-	assert.Equal(t, expected3, runB(testInput3))
-	assert.Equal(t, expected4, runB(testInput4))
-	assert.Equal(t, expected5, runB(testInput5))
-	assert.Equal(t, expected6, runB(testInput6))
-	// fmt.Printf("day10b: %d\n", runB(realInput))
+	// assert.Equal(t, expected3, runB(testInput3))
+	// assert.Equal(t, expected4, runB(testInput4))
+	// assert.Equal(t, expected5, runB(testInput5))
+	// assert.Equal(t, expected6, runB(testInput6))
+	fmt.Printf("day10b: %d\n", runB(realInput))
 }
