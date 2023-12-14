@@ -1,6 +1,6 @@
 package day11
 
-import "fmt"
+import "math"
 
 type point struct {
 	row int
@@ -10,7 +10,8 @@ type point struct {
 func runA(image []string) int {
 	image = expandEmptyRows(image)
 	image = expandEmptyCols(image)
-	return sumAllDistances(image)
+	galaxies := findAllGalaxies(image)
+	return sumAllDistances(galaxies)
 }
 
 func expandEmptyRows(image []string) []string {
@@ -52,30 +53,39 @@ func expandEmptyCols(image []string) []string {
 	return newImage
 }
 
-func sumAllDistances(image []string) int {
-	sum := 0
-	p := point{0, 0}
-	printImage(image)
-	for {
-		fmt.Printf("sum: %d\n", sum)
-		p = findNextGalaxy(p, image)
-		if p.row == -1 {
-			return sum
+func findAllGalaxies(image []string) []point {
+	galaxies := []point{}
+	for r := 0; r < len(image); r++ {
+		for c := 0; c < len(image[0]); c++ {
+			char := image[r][c]
+			if char == '#' {
+				galaxies = append(galaxies, point{r, c})
+			}
 		}
-		// fmt.Printf("new galaxy at: %v\n", p)
-
-		// needs a copy of image to update image to keep track of previous searches
-		// but then restart with current image when starting from a new galaxy
-		imageCopy := make([]string, len(image))
-		copy(imageCopy, image)
-		toAdd := findDistancesToLaterGalaxies(p, imageCopy)
-		sum += toAdd
-		// fmt.Printf("toAdd: %d, sum: %d\n", toAdd, sum)
-
-		p = advanceToNextPoint(p, len(image[0])-1)
 	}
+	return galaxies
 }
 
+func sumAllDistances(galaxies []point) int {
+	sum := 0
+	for i, g1 := range galaxies {
+		for j, g2 := range galaxies {
+			if i <= j {
+				continue
+			}
+			sum += getDistance(g1, g2)
+		}
+	}
+	return sum
+}
+
+func getDistance(g1 point, g2 point) int {
+	return int(
+		math.Abs(float64(g1.row)-float64(g2.row)) +
+			math.Abs(float64(g1.col)-float64(g2.col)))
+}
+
+/*
 func findNextGalaxy(p point, image []string) point {
 	for r := p.row; r < len(image); r++ {
 		for c := 0; c < len(image[0]); c++ {
@@ -204,3 +214,4 @@ func printImage(image []string) {
 	}
 	fmt.Println()
 }
+*/
