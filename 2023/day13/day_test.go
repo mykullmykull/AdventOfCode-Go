@@ -8,8 +8,8 @@ import (
 )
 
 func Test_runA(t *testing.T) {
-	// assert.Equal(t, expected, runA(testInput))
-	// fmt.Printf("day13a: %d\n", runA(realInput))
+	assert.Equal(t, expected, runA(testInput))
+	fmt.Printf("day13a: %d\n", runA(realInput))
 }
 
 func Test_runB(t *testing.T) {

@@ -6,10 +6,6 @@ func runA(input []string) int {
 	sum := 0
 	patterns := parse(input)
 	for _, pattern := range patterns {
-		fmt.Println()
-		for _, line := range pattern {
-			fmt.Println(line)
-		}
 		sum += getValueOfReflectionLine(pattern)
 	}
 	return sum
