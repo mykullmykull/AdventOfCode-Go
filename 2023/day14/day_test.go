@@ -1,4 +1,4 @@
-package day13
+package day14
 
 import (
 	"fmt"
@@ -8,11 +8,11 @@ import (
 )
 
 func Test_runA(t *testing.T) {
-	// assert.Equal(t, expected, runA(testInput))
-	// fmt.Printf("day13a: %d\n", runA(realInput))
+	assert.Equal(t, expected, runA(testInput))
+	fmt.Printf("day14a: %d\n", runA(realInput))
 }
 
 func Test_runB(t *testing.T) {
 	assert.Equal(t, expected2, runB(testInput))
-	fmt.Printf("day13b: %d\n", runB(realInput))
+	fmt.Printf("day14b: %d\n", runB(realInput))
 }
