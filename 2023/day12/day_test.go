@@ -1,6 +1,7 @@
 package day12
 
 import (
+	"fmt"
 	"testing"
 
 	"github.com/stretchr/testify/assert"
@@ -13,5 +14,5 @@ func Test_runA(t *testing.T) {
 
 func Test_runB(t *testing.T) {
 	assert.Equal(t, expected2, runB(testInput))
-	// 	fmt.Printf("day12b: %d\n", runB(realInput))
+	fmt.Printf("day12b: %d\n", runB(realInput))
 }
