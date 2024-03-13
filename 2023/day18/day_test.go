@@ -1,4 +1,4 @@
-package template
+package day18
 
 import (
 	"fmt"
@@ -12,7 +12,7 @@ func Test_runA(t *testing.T) {
 	fmt.Printf("day1a: %d\n", runA(realInput))
 }
 
-// func Test_runB(t *testing.T) {
-// 	assert.Equal(t, expected2, runB(testInput))
-// 	fmt.Printf("day1b: %d\n", runB(realInput))
-// }
+func Test_runB(t *testing.T) {
+	assert.Equal(t, expected2, runB(testInput))
+	fmt.Printf("day1b: %d\n", runB(realInput))
+}
