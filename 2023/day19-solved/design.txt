@@ -1,0 +1,70 @@
+PART 2
+
+got to px && a>=2006 && m>2090
+got to pv && a<=1716
+got to lnx
+got to rfg && s<=537 && x<=2440
+got to qs && s>3488
+got to qkq && x<1416
+got to crn && x>2662
+got to hdj && m>838
+
+Span
+    min int
+    max int
+
+    totalPossibilities() int
+    restrictBy(r Rule, negate bool) Span
+
+PartSpan
+    x Range
+    m Range
+    a Range
+    s Range
+
+    totalPossibilities() int
+    restrictBy(r Rule, negate bool) PartSpan
+
+Pile
+    ...same as Part 1 +
+
+    targetedPartRange(targetName string, s PartSpan) PartSpan
+
+
+
+
+
+
+PART 1
+
+Data Structures:
+    Pile                    // in practice this will be a map[string]Pile to optimize searching by name
+        rules []Rule
+    Rule
+        attribute string    // final and default rule of each pile will have attribute ""
+        operator string
+        value int
+        destination string
+    Part
+        x int
+        m int
+        a int
+        s int
+        pileName string
+
+        functions:
+        getNextPileName(piles map[string]Pile) string
+        matches(rule Rule) bool
+        totalAttributes() int
+
+Flow:
+    1. Parse input file into piles and parts
+    2. Loop thru parts 
+        a. Loop for each part to following thru to A or R
+            i. Look up pile by name
+            ii. Loop thru rules to find first match
+            iii. Update part's pileName
+            iv. If pileName is A or R then break
+    3. Total attributes of all parts at A
+
+
