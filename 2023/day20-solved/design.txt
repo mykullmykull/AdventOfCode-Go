@@ -1,0 +1,102 @@
+PART2 - by LCM
+Even though individual flip floppers don't cycle consistently, the conjunction modules DO
+    1. Find the cModules that contribute to rx
+        for rx to receive low all of kj's inputs [dr ln vn zx] must send high
+    2. Find the cylces when those cModules send high signals
+    3. Find the LCM of those cycles
+
+
+PART2 - consolidate -- failed, too complex
+Each button push updates
+    broadcaster => kt pd xv rg
+    kt => &jv mt
+    pd => pr jp
+    xv => nd jm
+    rg => qs vq
+    &jv [dh kt lv mcmt rm tg vc] => hj rc kt ln zp hf
+    &mt []
+
+broadcaster => low to each of the following flip floppers, which then send high to each ConjunctionModule
+    &kt->jv &mt->jv &vc->jv &dh->jv &nm->jv &mc->jv &lv->jv &tg->jv 
+    &pd->pr &jp->pr &mx->pr &qb->pr &bf->pr %ns->pr &pn->pr &cb->pr &tk->pr
+    &xv->jm &dg->jm &mh->jm &tp->jm &pf->jm &mf->jm &gv->jm &km->jm
+    &rg->qs &vq->qs &bs->qs &mv->qs &ng->qs &ng->qs &lh->qs &dl->qs
+    
+    => So jv, pr, jm, and qs will all eventually send low to the following
+        hj rc kt ln zp hf
+        pd vx vn cl hm
+        pb tm zx mk xv nd
+        kf dr sc rg gl dx
+
+        of this list kt, pr, xv, and rg and already On, so they turn off and send low signals to the following
+        kt->jv mt->jv zp pr xv rg
+
+PART2 - by cycles - failed, flip flop cycles aren't consistent
+for rx to receive low all of kj's inputs [dr ln vn zx] must send high
+    for dr to send high, any of its inputs [qs] must send low
+        for qs to send low all of its inputs [bs ng rg mv vq ts dl lh] must send high
+    for ln to send high, any of its inputs [jv] must send low   
+        for jv to send low all of its inputs [dh nm mt tg mc lv kt vc] must send high
+    for vn to send high, any of its inputs [pr] must send low
+        for pr to send low all of its inputs [jp bf pn pd mx tk ns cb qb] must send high
+    for zx to send high, any of its inputs [jm] must send low
+        for jm to send low all of its inputs [km xv mh mf tp gv dg pf] must send high
+
+so for rx to receive low, all of the following must have sent high most recently
+    bs ng rg mv vq ts dl lh dh nm mt tg mc lv kt vc jp bf pn pd mx tk ns cb qb km xv mh mf tp gv dg pf
+    
+    All flip flop modules
+    bf bs cb cl dg dh dl dx gl gv hf hj hm jp kf km kt lh lv mc mf mh mk mt mv mx nd ng nm ns pb pd pf pn qb rc rg sc tg tk tm tp ts vc vq vx xv zp
+
+    flip flop modules that contrubute to rx
+    bf bs cb    dg dh dl       gv          jp    km kt lh lv mc mf mh    mt mv mx    ng nm ns    pd pf pn qb    rg    tg tk    tp ts vc vq    xv
+
+
+At what point will all of the rx-contributing ffModules have sent a high signal?
+    1. Create a map that will eventually map the names of all of the rx-contributing ffModules to their repeaat interval
+    2. Process button presses until map has all of the names of the rx-contributing ffModules filled in
+    3. Get unique list of flip flop cycles sorted max to min
+    4. Loop over button presses (p) skipping those where come flip flop cycle isn't on
+        a. Loop over flip flop cycles (c) from max to min
+            i. if p % (c * 2) < c, then p = p + (p % c) and continue
+            ii. else return p
+
+
+PART1
+
+DataStructures
+    strength enum
+        high
+        low
+
+    signal struct
+        from string
+        to string
+        strength signalType
+
+    FlipFlipModule struct
+        isOn bool
+        outs []string
+
+        processSignal(signal) []signal
+    
+    ConjunctionModule struct
+        lastSignals map[string]strength
+        outs []string
+
+        processSignal(signal) []signal
+
+    broadcastOuts []string
+    modules map[string][]interface{} {list of modules}
+    ffModules map[string]FlipFlopModule
+    cModules map[string]ConjunctionModule
+    signals []signal
+
+Flow
+    1. Parse input into broadcastOuts, modules, ffModules, and cModules
+    2. Loop over 1000 broadcasts
+        a. Keep an ordered list of signals
+        b. Process each signal through its "to" module
+            i. Add any new signals to the list
+            ii. Increment the lowCount or highCount for the signal
+    3. Multiple final lowCount and highCount
