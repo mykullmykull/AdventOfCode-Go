@@ -1,0 +1,27 @@
+PART2
+store a map of new locations based on base location
+
+
+PART1
+structs
+    location:
+        row: int
+        col: int
+
+        getNextLocations(grid []string) []location
+        isValidLocation(grid []string) bool
+
+debug functions
+    printGrid(grid []string, locations []location)
+
+flow
+    1. Find starting location
+    2. Loop thru steps
+        - Loop thru locations
+            - Get next locations
+                - N, S, E, W
+                - Check each for rocks
+            - Add valid locations to map (to prevent duplicates)
+        - Pull all keys from map and set as locations
+    3. Return length of final locations
+
