@@ -1,0 +1,33 @@
+PART2
+strategy
+    1. Settle the bricks
+    2. For each brick, count the number of bricks that will move if it is disintegrated
+        -remove it from the list
+        -loop through the remaining bricks list
+            -if another brick would move, count it, remove it, and loop again
+            -as soon as nothing else moves, return the count
+
+PART1
+span
+    min int
+    max int
+
+    overlaps(s2 span) bool
+
+brick
+    x span
+    y span
+    z span
+
+    bricksSupporting(bricks []brick) bool
+    bricksBeingSupported(bricks []brick) bool
+    canFall(bricks []brick) bool
+    equals(b2 brick) bool
+    canDisintegrate(bricks []brick) bool
+
+strategy
+    1. Settle the bricks
+        -loop through bricks until no more bricks can fall
+            -for each, if it can fall, subtract 1 from its z.min and its z.max
+    2. Loop through bricks
+        -for each, if every brick it is supporting is being supported by another then count it as disintegratable
