@@ -1,0 +1,71 @@
+PART2 by intersections
+intersection
+    location    int
+    adjacents   []intersection
+
+trip
+    location    point
+    visited     []point
+    length      int
+
+Strategy
+1. Create array of all intersections
+    -include start as one intersection
+    -include end as another intersection
+2. Map each immediate leg (intersection to next intersection)
+3. Follow every possible trip until the end, keep track of the longest length
+
+
+
+PART2 by headings
+direction enum (up, rt, dn, lt)
+
+turn
+    location    point
+    heading     direction
+    length      int
+
+turns
+    []turn
+
+    advanceToNextTurn() turns
+    rewind() turns
+
+Strategy
+1. Create a turns object with the starting point
+2. Advance to the next turn
+    -update location
+    -update length
+    -update path in grid
+    -if ever finished, update longeest path
+    -if ever can't advance, rewind
+    -if no turns left to rewind, break
+
+
+
+PART1
+point
+    row         int
+    col         int
+
+    isValid(grid []string) bool
+
+path
+    history     map[point]bool
+
+    last() point
+    length() int
+    getNewPaths(grid []string) []path
+
+Strategy
+1. Create a path with the starting point
+2. While there are paths in the queue
+    1. Get the first path
+    2. Remove the first path from the queue
+    3. If path has finished update maxLength
+    3. Create new valid paths
+        -No walls
+        -No visited points
+        -No uphills
+    4. Add any new paths to the queue
+
