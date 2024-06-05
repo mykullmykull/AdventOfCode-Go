@@ -1,0 +1,150 @@
+PART 2 - Step By Step
+Strategy
+1. Parse input to stones
+2. Incrementing should starting at 0 and expand from there (0, 1, -1, 2, -2, 3, -3, etc)
+3. Let the following variables
+    -thrown or t = thrown stone
+    -dx = thrown.dx
+    -x = thrown.start.x
+    -dy = thrown.dy
+    -y = thrown.start.y
+    -dz = thrown.dz
+    -z = thrown.start.dz
+    -stone or s = parsed stone    
+    -axis = (dx && x), (dy && y), or (dz && z)
+    -time(s, axis) = time of collision between thrown and s along given dimmension
+3. Increment x
+4. Calculate possible range of dx given that for every stone
+     -if t.x == s.x then t.dx must == s.dx
+     -if t.x > s.x then t.dx must be <= s.dx
+     -if t.x < s.x then t.dx must be >= s.dx
+  If no dx is possible return to step 3
+5. Increment dx along possible range until t(s, x) > 0 for every stone s
+6. Increment y
+7. Calculate possible range of dy given that for every stone
+     -if t.y == s.y then t.dy must == s.dy
+     -if t.y > s.y then t.dy must be <= s.dy
+     -if t.y < s.y then t.dy must be >= s.dy
+  If no dy is possible return to step 6
+8. Increment dy along possible range until T(s, y) == T(s, x) for every stone s
+  If no dy is possible return to step 6
+9. Increment z
+10. Calculate possible range of dz given that for every stone
+     -if t.z == s.z then t.dz must == s.dz
+     -if t.z > s.z then t.dz must be <= s.dz
+     -if t.z < s.z then t.dz must be >= s.dz
+  If no dz is possible return to step 9
+11. Increment dz along possible range until T(s, z) == T(s, x) for every stone s
+  If no dy is possible return to step 9
+
+
+
+
+
+PART 2 - Semi Bruteforce
+Strategy
+1. Parse input to stones
+2. Incrementing should start at 0 and expand from there (0, 1, -1, 2, -2, 3, -3, etc)
+3. Increment dx and x
+4. Check if dx and x will collide with all other stones
+    -For each stone, t = (s.x - t.x) / (t.dx - s.dx).
+    -If t < 0 then repeat from step 3
+5. Attempt to calculate y and z, if can't then move on
+    -For stone #1
+        -Calculate t from x, dx, and stone's x
+        -Calculate y from dy, t, and stone's y
+        -Calculate z from dz, t, and stone's z
+    -For each other subsequent stone
+        -Calculate t from x, dx, and stone's x
+        -Calculate y from dy, t, and stone's y
+        -Calculate z from dz, t, and stone's z
+    -If y and z ever don't match those from stone #1, then break and move on
+    -If all stones match, then return thrown as the answer
+
+
+part2 - Calculate - too complex
+Strategy
+1. Parse input to stones
+2. Base incrementing should start at 0 and expand from there (0, 1, -1, 2, -2, 3, -3, etc)
+2. Loop through x and dx values until collides with all other stones
+
+    -incrementer 0
+    -0 0
+
+    -incrementer 1
+    -0 1 
+    -0 -1 
+    -1 0
+    -1 1
+    -1 -1
+    --1 0
+    --1 1
+    --1 -1
+
+    -incrementer 2
+    -0 2
+    -0 -2
+    -1 2
+    -1 -2
+    --1 2
+    --1 -2
+    -2 0
+    -2 1
+    -2 -1
+    -2 2
+    -2 -2
+    --2 0
+    --2 1
+    --2 -1
+    --2 2
+    --2 -2
+
+    -Keep an incrementer to track how far from 0 x and dx should deviate
+    -If x and dx are both == -1 * incrmenter then reset
+        -dx = 0
+    -If dx == incrementer or -1 * incrementer
+        -then x should explore all values between -1 * incrementer and incrementer
+        -else x should just try -1 * incrementer and incrementer
+    
+3. Loop through stones (s) to find y, dy, z, and dz values, 
+    -Calculate time (t) that x values match given x and dx will collide with s, 
+        -Loop through dy values and calculate y value at t
+            -If y value matches, then continue
+            -If none then reset y, dy, z, and dz and continue trying more x and dx values
+        -Loop through dz values and calculate z value at t
+            -If z value matches, then continue
+            -If none then reset y, dy, z, and dz and continue trying more x and dx values
+
+
+
+PART2 - Brute Force
+Strategy
+1. Parse input to stones
+2. Loop through possible stones and see if stone will collide with all other stones
+    -Cycle through x and dx first and find a combo that will collide with all other stones' x values
+    -Then cycle through y and dy and find a combo that will collide with other stones x and y values at the same time
+    -Then cycle through z and dz and find a combo that will collide with other stones x, y, and z values at the same time
+    -If ever a combo won't collide, then reset y, dy, z, dy and continue trying more x and dx values
+
+
+PART1
+
+point struct
+    x int
+    y int
+
+stone struct
+    start   point
+    xDelta  int
+    yDelta  int
+
+    willCrossTheSamePoint(stone) bool
+    
+Strategy
+1. Parse input to stones
+2. Compare every combination of 2 stones
+    -Count each combo where both stones will pass the same xy point at some future time 
+        -Formulate equation of each stone's linear path
+        -Solve for xy point where both stones will pass
+    -(not necessarily the same time)
+

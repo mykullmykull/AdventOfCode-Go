@@ -1,0 +1,2 @@
+1. Parse stones
+2. Same as tooSlow, but instead of looping through the narrowest dimension, shrink range given stones, other dimensions, and timing
