@@ -1,0 +1,29 @@
+struct wire {
+    lt: node
+    rt: node
+}
+
+struct node {
+    name: string
+    connections: map[string]int
+}
+
+parse input into wires and map[string]node
+loop until only 1 wire and 2 nodes remain with 3 connections between its two nodes them
+    loop until only 1 wire and 2 nodes remain
+        randomly select a wire w
+        delete wire
+        create a new node n 
+            with name "-" + w.lt.name + "-" + w.rt.name
+            with connections = w.lt.connections + w.rt.connections
+        in every node 
+            replace any connection to w.lt with n
+            replace any connection to w.rt with n
+        in every wire 
+            replace any lt equal to w.lt with n
+            replace any lt equal to w.rt with n
+            replace any rt equal to w.lt with n
+            replace any rt equal to w.rt with n
+        delete nodes with names w.lt and w.rt
+
+return the remaining wire's lt.name / 3 * rt.name / 3
