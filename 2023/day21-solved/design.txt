@@ -1,0 +1,25 @@
+The infinite farm is a sequence of subFarms represented by the input.
+Because the subFarm's Column and Row containing the Start pixel are free of rocks, the entire walkable area 
+    will be roughly a diamond shape. Most of it will consist of subFarms that are entirely walkable.
+
+Each subFarm is identified by its distance to the right and down from the center subFarm.
+    subFarm {
+        rt int,
+        dn int,
+    }
+
+General strategy will be to
+    count the spaces in the center subFarm reachable by an even number of steps (evenSpotsCount) and 
+        those reachable by an odd number of steps (oddSpotsCount),
+    count the subFarms that are an even number of steps from the center subFarm (evenSubFarmsCount) and
+        those that are an odd number of steps from the center subFarm (oddSubFarmsCount),
+    multiply the evenSpotsCount by the evenSubFarmsCount and the oddSpotsCount by the oddSubFarmsCount,
+    add the spaces reachable in each edge subFarm
+
+Since the starting pixel lies in the center of the center subFarm we know a few things:
+    subFarms to the left of center will be identical to those to the right of center,
+    subFarms above center will be identical to those down from center,
+    the shortest path to the farthest right subFarm will be in the center Row,
+    the shortest path to the farthest down subFarm will be in the center Column,
+
+
