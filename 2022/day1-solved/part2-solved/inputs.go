@@ -15,8 +15,10 @@ var testInput = []string{
 	"8000",
 	"9000",
 	"",
-	"10000"}
-var expected = 24000
+	"10000",
+	"",
+}
+var expected = 45000
 
 var realInput = []string{
 	"3427",
@@ -2262,4 +2264,5 @@ var realInput = []string{
 	"5862",
 	"2002",
 	"1870",
+	"",
 }
