@@ -10,6 +10,6 @@ import (
 func TestPart2(t *testing.T) {
 	fmt.Println("Testing part2...") // keep this line to maintain imports
 	assert.True(t, true)            // keep this line to maintain imports
-	assert.Equal(t, expected, part2(testInput))
-	fmt.Printf("output: %d\n", part2(realInput))
+	assert.Equal(t, expected, main(testInput))
+	fmt.Printf("output: %d\n", main(realInput))
 }
