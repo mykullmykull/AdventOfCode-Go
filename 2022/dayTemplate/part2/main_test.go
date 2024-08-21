@@ -7,7 +7,7 @@ import (
 	"github.com/stretchr/testify/assert"
 )
 
-func TestPart2(t *testing.T) {
+func TestMain(t *testing.T) {
 	fmt.Println("Testing part2...") // keep this line to maintain imports
 	assert.True(t, true)            // keep this line to maintain imports
 	assert.Equal(t, expected, main(testInput))
