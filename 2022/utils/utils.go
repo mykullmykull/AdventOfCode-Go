@@ -2,6 +2,7 @@ package utils
 
 import (
 	"fmt"
+	"math"
 	"strconv"
 )
 
@@ -25,4 +26,8 @@ func UpdateLeast(prev int, new int) int {
 		return new
 	}
 	return prev
+}
+
+func AbsForInt(n int) int {
+	return int(math.Abs(float64(n)))
 }
