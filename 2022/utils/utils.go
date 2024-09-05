@@ -31,3 +31,10 @@ func UpdateLeast(prev int, new int) int {
 func AbsForInt(n int) int {
 	return int(math.Abs(float64(n)))
 }
+
+func AppendToStrArray(a []string, toAdd string) []string {
+	copyOfArray := make([]string, len(a))
+	copy(copyOfArray, a)
+	copyOfArray = append(copyOfArray, toAdd)
+	return copyOfArray
+}
