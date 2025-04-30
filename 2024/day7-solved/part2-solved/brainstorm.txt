@@ -1,0 +1,14 @@
+loop through each line 
+    look for valid equations by 
+        parse elements (target: elements)
+        loop through elements, keeping a list of possible results
+            loop through all possible results, and replace with new results
+                result + current
+                result * current
+                if ever a new result > target then throw it away
+            }
+        }
+        equation is valid if one of the possible results == target
+    if valid, add test value to total
+return total
+

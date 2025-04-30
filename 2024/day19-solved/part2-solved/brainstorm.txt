@@ -1,0 +1,14 @@
+parse towels
+parse patterns
+track possiblePatternsCount
+loop through patterns to see if isPossible
+    track seen []string of index strings and a map[indexes string]pattern string
+    loop through index strings
+        loop through towels
+            if adding newTowel will work then 
+                if perfect return true
+                if new index string is already seen then continue
+                create new stack
+
+
+

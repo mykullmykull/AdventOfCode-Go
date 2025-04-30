@@ -1,0 +1,10 @@
+parse list into map[string][]string
+    each line, each side is the key, add the other side to its list of connections
+
+track count
+consider all possible sets of 3 computers
+    if none of the 3 start with "t" then continue
+    if each is connected to the other two then count++
+
+return count
+

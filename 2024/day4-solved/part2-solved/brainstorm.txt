@@ -1,0 +1,5 @@
+loop through each combination of row, col
+    continue if it isn't an A
+    look at diagonals, continue if they aren't both MASs
+ 
+ 

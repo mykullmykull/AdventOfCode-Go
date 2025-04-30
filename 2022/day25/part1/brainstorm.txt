@@ -1,0 +1,8 @@
+loop through the fuel requirements. For each:
+    convert to decimal
+        loop through each character last to first
+            track the 5s place you're in
+            take the last digit and convert to int
+            multiply by 5s place
+    add to the sum
+convert to snafu

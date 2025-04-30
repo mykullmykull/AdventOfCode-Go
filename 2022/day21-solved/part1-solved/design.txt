@@ -1,0 +1,28 @@
+Start with root and substitute. For example:
+    root: pppw + sjmn
+    root: (cczh / lfqf) + sjmn
+    root: ((sllz + lgvd) / lfqf) + sjmn
+    root: ((4 + lgvd) / lfqf) + sjmn
+    root: ((4 + (ljgn * ptdq)) / lfqf) + sjmn
+    root: ((4 + (2 * (humn - dvpt))) / lfqf) + sjmn
+    root: ((4 + (2 * (5 - dvpt))) / lfqf) + sjmn
+    root: ((4 + (2 * (5 - 3))) / lfqf) + sjmn
+    root: ((4 + (2 * (5 - 3))) / 4) + sjmn
+    root: ((4 + (2 * (5 - 3))) / 4) + (drzm * dbpl)
+    root: ((4 + (2 * (5 - 3))) / 4) + ((hmdt - zczc) * dbpl)
+    root: ((4 + (2 * (5 - 3))) / 4) + ((32 - zczc) * dbpl)
+    root: ((4 + (2 * (5 - 3))) / 4) + ((32 - 2) * dbpl)
+    root: ((4 + (2 * (5 - 3))) / 4) + ((32 - 2) * 5)
+    root: ((4 + (2 * (5 - 3))) / 4) + ((32 - 2) * 5)
+    root: ((4 + (2 * 2)) / 4) + ((32 - 2) * 5)
+    root: ((4 + 4) / 4) + ((32 - 2) * 5)
+    root: (8 / 4) + ((32 - 2) * 5)
+    root: 2 + ((32 - 2) * 5)
+    root: 2 + (30 * 5)
+    root: 2 + 150
+    root: 152
+
+monkeys: map[string]string
+replaceNextMonkey(string, monkeys) => string
+waitingForMoneys(string) => bool
+doMath(string) => int

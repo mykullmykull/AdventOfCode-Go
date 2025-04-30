@@ -1,0 +1,34 @@
+we know how many turns the shortest path has
+bestTurns = best / 1000
+bestSteps = best % 1000
+fill in dead ends
+make one grid copy for valid points
+make one grid copy for unreachable points
+
+check if each point in the grid can reach S and E in best turns
+    if the point is '#', 'S', or 'E', then skip it
+    if we can't reach both S and E with fewest turns then skip
+        grow straight as far as possible
+        then add 1 to turns
+        if ever we hit S or E then lock in shortest number of turns
+        if ever turns to S + turns to E > best turns then skip
+        if point works with turns, then
+            mark this point 'T' on valid points grid copy
+            mark all reachable points with 'R' on unreachable points grid copy
+
+mark all unreachable points with '#'
+fill in dead ends
+
+check if each point in the grid can reach S and E in best steps
+    if we can't reach both S and E with fewest steps then skip
+        grow one step at a time
+        if ever we hit S or E then lock in shortest number of steps
+        if ever steps to S + steps to E > best steps then skip
+        if point works with turns, then mark this point 'X' on valid points grid copy
+
+check if each point on valid points grid copy is a backtracker
+    if the point isn't 'X' then skip it
+    if the point is next to 'S' or 'E' then skip it
+    if the point only touches one other 'X' then make it '.'
+
+Count Xs on valid points grid copy

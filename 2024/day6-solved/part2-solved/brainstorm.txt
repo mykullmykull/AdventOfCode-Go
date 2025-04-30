@@ -1,0 +1,65 @@
+Track on the map, <v>^ means the guard, # is an obstacle, a number is a visited path with the number designating the previous directions
+loop over the entire grid
+    if # or ^ then continue
+    make a copy of the initial grid to track on
+    place new obstacle on the copy
+    loop until either guard repeats himself or leaves the grid
+        move guard
+            if isBlocked then turn right
+            otherwise move forward
+        update grid
+    increment count of loop-causing obstacles
+return count of loop-causing obstacles
+
+CONSTANTS
+u    = "0"
+ur   = "1"
+urd  = "2"
+urdl = "3"
+url  = "4"
+udl  = "5"
+ul   = "6"
+r    = "7"
+rd   = "8"
+rdl  = "9"
+rl   = "A"
+d    = "B"
+dl   = "C"
+l    = "D"
+
+arrows = map[string]string{
+    u: "^",
+    r: ">",
+    d: "v",
+    l: "<",
+}
+
+directions = map[string][]string{
+    0: {u},
+    1: {u, r},
+    2: {u, r, d},
+    3: {u, r, d, l},
+    4: {u, r, l},
+    5: {u, d, l},
+    6: {u, l},
+    7: {r},
+    8: {r, d},
+    9: {r, d, l},
+    A: {r, l},
+    B: {d},
+    C: {d, l},
+    D: {l},
+}
+
+STRUCTS
+guard {
+    row int
+    col int
+    dir string
+}
+
+FUNCTIONS
+func (g *guard) move() guard
+func (g *guard) getNextStep() guard
+func (g *guard) turnRight() guard
+func updateGrid(oldG guard, newG guard) guard

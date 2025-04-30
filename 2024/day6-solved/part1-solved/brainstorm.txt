@@ -1,0 +1,33 @@
+Track on the map, <v>^ means the guard, # is an obstacle, X is a visited path
+move guard
+    if isBlocked then turn Right and return new guard
+    move forward and return new guard
+update grid
+if finished break
+
+
+CONSTANTS
+up = 0
+rt = 1
+dn = 2
+lt = 3
+
+arrows = map[int]string{
+    up: "^",
+    rt: ">",
+    dn: "v",
+    lt: "<",
+}
+
+STRUCTS
+guard {
+    row int
+    col int
+    dir int
+}
+
+FUNCTIONS
+func (g *guard) move() guard
+func (g *guard) getNextStep() guard
+func (g *guard) turnRight() guard
+func updateGrid(oldG guard, newG guard) guard

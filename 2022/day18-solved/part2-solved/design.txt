@@ -1,0 +1,37 @@
+Parse input into a 3d grid ([][]string) where index of the outer array is the z coord, index of the inner array is the y coord, and index of the string is the x coord. Grid should be cube shaped with an empty slice at z[0] and z[end], an empty row at y[0] and y[end], and an empty space at every x[0] and x[end].
+
+Keep an array of cursors (z, y, x) starting with just 0,0,0.
+
+Keep a count of faces touched.
+
+Process each cursor until none left
+    for len(cursors) gt 0 {
+      c = cursors[0]
+      steam.set(c, '0')
+      cursors = cursors[1:]
+      ...
+  Process each new cursor x+, x-, y+, y-, z+, z-
+    If newCursor is out of bounds then continue
+    If newCursor is already processed (get = '0') then continue 
+    If newCursor is empty (get = '.') then add to cursors
+    If newCursor is lava (get = '#') then add to count
+
+STRUCTs
+steam
+  grid [][]string
+  cursors []cursor
+  count int
+cursor
+  x, y, z int
+
+FUNCs
+steam.parse([]string) steam 
+steam.countExposedFaces() steam
+cursor.expand() []cursor
+steam.isOutOfBounds(cursor) bool
+steam.shouldSkip(cursor) bool
+steam.get(cursor) rune
+steam.set(cursor, rune) steam
+steam.printGrid()
+
+

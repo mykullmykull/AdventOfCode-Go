@@ -1,0 +1,2 @@
+finishes when no elf can move
+so after proposed moves, there are no Os

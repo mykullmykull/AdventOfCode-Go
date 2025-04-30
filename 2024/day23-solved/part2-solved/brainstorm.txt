@@ -1,0 +1,13 @@
+parse to 
+    map of strings like ("ka-co")
+    and array of computers (ka, co, etc)
+track maxGroupLength
+make an array of indexes starting at [0]
+    if all are unique and all indexes are paired then
+        add 0 to the end
+    else
+        increment the last index
+        if last index >= len then remove index and loop
+
+
+

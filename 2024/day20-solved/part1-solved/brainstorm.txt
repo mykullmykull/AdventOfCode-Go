@@ -1,0 +1,22 @@
+parse map[wall]wallTime
+wall {
+    p point
+    horizontal bool
+}
+wallTime {
+    timeMin int (start at -1)
+    timeMax int (start at -1)
+}
+
+run with no cheats, 
+    track seconds
+    at each step, 
+        for each wall neighbor, 
+            if can't find wall in walls map then continue
+            if timeMin == -1 then set timeMin to seconds and continue
+            if timeMax != -1 then panic
+            set timeMax to seconds
+
+for each wall in walls map
+    timeSaved = timeMax - timeMin + 2
+    if timeSaved > target then count

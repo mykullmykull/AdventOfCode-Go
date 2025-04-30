@@ -1,0 +1,30 @@
+Generate the list of 2000 price changes for each monkey
+Loop through all possible combinations of 4 price changes
+    sum the bananas each monkey would pay given that combination
+    if sum is greater than the greatest sum so far, update the greatest sum
+Return the greatest sum
+
+write and test these functions:
+    getPrice(secret int) int
+    getPrices(start int, count int) []int
+    getPriceChanges(start int, count int) []int
+    buyBananasFromMonkey(start int, count int, sequence [4]int) int
+    buyBananas(starts []int, sequence [4]int) int
+    getNextSequence(last [4]int) [4]int
+
+Calculate monkeys once instead of for each seq.
+
+
+instead of looping through all possible sequences,
+    keep a map of considered sequences,
+    loop through each set of changes,
+        loop through 
+
+
+instead of looping through all real sequences
+    keep a map of sequences => bananas
+    loop through each monkey's changes
+        update the map with the new bananas
+    loop through all sequences and get biggest
+
+    

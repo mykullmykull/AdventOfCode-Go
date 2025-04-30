@@ -1,0 +1,10 @@
+represent stones with a slice of strings
+each blink loop through stones and generate a new slice
+    for each stone
+        if "0" then set to "1"
+        if even digits then replace with two stones
+            first stone gets the left half of the digits
+            second stone gets the right half of digits
+                remove leading "0"s
+        default new stone gets old stone * 2024
+return len of stones

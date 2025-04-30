@@ -1,0 +1,24 @@
+parse antenas into points with row and col
+consider each pair of antenas
+    if their frequencies are different continue
+    calculate the two possible antinodes and count any within the grid
+        calculate the slope of the LINE connecting the two antennas
+        calculate the size of the GAP between the two antennas
+        find the points along the LINE the same GAP from each antenna
+
+STRUCTS
+point {
+    row int
+    col int
+}
+
+pair {
+    a point
+    b point
+}
+
+FUNCTIONS
+pair.rowGap() int
+pair.colGap() int
+pair.antinodes() []point
+point.isInGrid() bool

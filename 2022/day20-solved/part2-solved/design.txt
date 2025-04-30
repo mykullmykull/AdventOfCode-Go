@@ -1,0 +1,23 @@
+Create two lists:
+    one a list of coordinates to be mixed "coords"
+        multiply each input by 811589153
+    one an ordered list of their indexes "indexes"
+For each index,
+    find the coord
+    calculate the new index
+        places to move = abs(val) % len(array)
+        direction to move = val / abs(val)
+        new index = old index + places to move * direction
+    rebuild list of coords
+    update list of indexes
+        get max/min of old & new
+        loop through all toMix, updating those between min and max
+        if direction > 0 decrease the index
+        if direction < 0 increase the index
+    append updated index to the back of the list
+Loop until each index has been processed 10 times
+rotate coords until 0 is at the front
+a = 1000th coord
+b = 2000th coord
+c = 3000th coord
+return a + b + c

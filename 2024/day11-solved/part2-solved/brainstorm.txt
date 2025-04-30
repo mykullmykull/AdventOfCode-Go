@@ -1,0 +1,29 @@
+we can speed things up by caching values
+    key = stone, value = int (count of added stones)
+
+how to cache?
+    loop through stones and for each
+        follow it and all of its children until they age out
+        update cache with total child count
+        to process a stone
+            if over 25, return 0 children
+            age++
+            if 0 then 1 continue
+            if odd then *2048 continue
+            if even then
+                processWithChildren
+                    process left half
+                    process right half
+                    return left + right
+
+
+
+
+STRUCTS
+stone {
+    age int
+    val string
+}
+
+FUNCTIONS
+seed.blink() 

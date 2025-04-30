@@ -4,7 +4,43 @@ import (
 	"fmt"
 	"math"
 	"strconv"
+	"strings"
 )
+
+func Atoi(str string) int {
+	i, err := strconv.Atoi(str)
+	if err != nil {
+		panic(fmt.Sprintf("Could not parse %s to int", str))
+	}
+	return i
+}
+
+func Abs(n int) int {
+	if n < 0 {
+		return n * -1
+	}
+	return n
+}
+
+func SplitInts(str string, separator string) []int {
+	var ints []int
+	for _, s := range strings.Split(str, separator) {
+		ints = append(ints, Atoi(s))
+	}
+	return ints
+}
+
+func CountTens(n int) int {
+	if n == 0 {
+		return 1
+	}
+	count := 0
+	for n > 0 {
+		n /= 10
+		count++
+	}
+	return count
+}
 
 func StrToInt(str string) int {
 	out, err := strconv.Atoi(str)
@@ -98,4 +134,33 @@ func StrToFloat(str string) float64 {
 		panic(fmt.Sprintf("cannot convert %s to a float", str))
 	}
 	return out
+}
+
+func AllBinaries(x int, y int) []string {
+	var binaries []string
+	length := Abs(x) + Abs(y)
+	max := int(math.Pow(2, float64(length)))
+	for z := 0; z < max; z++ {
+		bin := fmt.Sprintf("%b", z)
+		for len(bin) < length {
+			bin = "0" + bin
+		}
+		if strings.Count(bin, "1") != Abs(x) || strings.Count(bin, "0") != Abs(y) {
+			continue
+		}
+		binaries = append(binaries, bin)
+	}
+	return binaries
+}
+
+func BinToInt(bin string) int {
+	i, err := strconv.ParseInt(bin, 2, 64)
+	if err != nil {
+		panic(fmt.Sprintf("unable to parse int from bin %s, err: %s", bin, err.Error()))
+	}
+	return int(i)
+}
+
+func IntToBin(i int) string {
+	return fmt.Sprintf("%b", i)
 }

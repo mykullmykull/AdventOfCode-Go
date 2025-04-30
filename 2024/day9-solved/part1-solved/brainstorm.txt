@@ -1,0 +1,30 @@
+The real input is too long to expand into the string format suggested in the example
+
+parse input into files (id, size) and spaces (size)
+keep track of whether we're moving a file or not, diskPosition, and the checksum
+start diskPosition at the first file's length (since the first file id is 0, it won't add to the checksum at all, so we can just skip it)
+start out moving a file
+loop until there are no files left
+    if moving a file
+        space = spaces[0]
+        if space.size == 0
+            remove spaces[0]
+            moving = !moving
+            continue
+
+        file = last file
+        if file.size == 0
+            remove file
+            continue
+        
+        checksum += diskPosition * file.id
+        file.size--
+        space.size--
+        diskPosition++
+        continue
+
+    file = files[0]
+    checksum += diskPosition * file.id
+    file.size--
+    diskPosition++
+

@@ -1,0 +1,16 @@
+make a list of all trail heads
+    keep track of the altitude, row, and col
+loop through trails
+    find all reachable next steps, and update the list of trails
+    remove any duplicates
+when altitude is 9, return the number of trails
+
+STRUCTS
+point {
+    row int
+    col int
+    alt int
+}
+
+FUNCTIONS
+point.next() []point

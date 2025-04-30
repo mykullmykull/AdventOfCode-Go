@@ -1,0 +1,5 @@
+track robots for 100 seconds, then count robots in each quadrant
+parse input into robots (pos, vel)
+for each robot, calculate final position after 100 seconds
+for each robot, calculate quadrant, add to count 
+return product of quadrant counts

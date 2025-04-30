@@ -1,0 +1,5 @@
+keep a shouldMultiply bool state variable, change it whenever we encounter a do() or don't() string
+
+do()
+mul(d,d)
+don't()

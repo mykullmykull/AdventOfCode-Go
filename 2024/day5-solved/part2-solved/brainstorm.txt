@@ -1,0 +1,7 @@
+find incorrectly ordered update
+for each...
+    loop through rules until all rules pass
+        if bef not found or aft not found or bef < aft then continue
+        move bef to just before aft
+    add new middle to the total
+return total

@@ -1,0 +1,6 @@
+loop through each combination of row, col, and direction
+    exit as soon as we know this isn't a match
+    count valid matches
+return count
+
+

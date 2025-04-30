@@ -1,0 +1,22 @@
+make a map of all wireValues
+    map[string]int
+    initially, every value will be -1
+make a map of all gates 
+    map[string]gate
+make an array of all unknown wire values
+    []string
+loop through starting wires
+    set wireValue
+    delete wire from unknowns
+
+loop through unknowns until none left
+    evaluate gate
+        if some input is -1, then return -1
+        AND => both wires are 1 then return 1 else return 0
+        OR => either wire is 1 then return 1 else return 0
+        XOR => one wire is 1 and the other is 0 then return 1 else return 0
+    if gate returns -1 then continue
+    set wireValue
+    remove wire from unknowns
+
+calculate binary number from z wires

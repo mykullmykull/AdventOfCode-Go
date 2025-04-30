@@ -1,0 +1,42 @@
+How will wrapping work?
+    instead of jumping, we should progress one step at a time
+    Track which side we're on (ft, bk, tp, bm, lt, or rt), and the translation function for moving from one to the other.
+
+enums
+    // grid directions
+    up = 0
+    dn = 1
+    lt = 2
+    rt = 3
+
+    // cube sides
+    tp = 4
+    bm = 5
+    ft = 6
+    bk = 7
+    ls = 8
+    rs = 9
+
+gridPoint struct {
+    row int
+    col int
+    side int
+    facingRow int
+    facingCol int
+}
+
+moveToNextSide(from gridPoint, direction int) gridPoint
+
+board struct {
+    grid     []string
+    walls    []gridPoint
+    position gridPoint
+    instructions string
+}
+
+parse([]string) board
+board.popInstruction() (string, string)
+gridPoint.turn(string) gridPoint
+board.move(string) board
+gridPoint.wrapSides() gridPoint
+board.getFacingScore() int

@@ -1,0 +1,25 @@
+Let's try brute force first
+
+Parse input into machines with buttons and a prize point
+Loop through all possible combinations of button presses
+    b 0 to 100
+    a 0 to 100
+    if we hit the prize point then record the price, keeping the cheapest price
+Return the cheapest price
+
+STRUCTS
+machine {
+    a     button
+    prize point
+}
+
+button {
+    xChange int
+    yChange int
+    tokens  int
+}
+
+point {
+    x int
+    y int
+}

@@ -1,0 +1,35 @@
+track the valley with a grid of strings
+    E means elves
+    # means wall
+    . means open
+    > means right-blowing blizzard
+    < means left-blowing blizzard
+    v means down-blowing blizzard
+    ^ means up-blowing blizzard
+    - means right and left
+    1 means right and down
+    2 means right and up
+    3 means right and left and down
+    4 means right and left and up
+    5 means right and down and up
+    6 means right and left and down and up
+    7 means left and down
+    8 means left and up
+    9 means left and down and up
+    | means down and up
+
+Each tick
+    1. Move the blizzards
+    2. Add elf possible new positions
+    3. Check for finish
+
+valley {
+    time
+    grid
+    possibleElfPositions
+}
+
+FUNCTIONS
+    moveBlizzards
+    getNewElfPositions
+    checkForFinish

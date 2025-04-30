@@ -1,0 +1,56 @@
+nRobot uses a pad like this, starting at A
+    7   8   9
+    4   5   6
+    1   2   3
+        0   A
+
+dRobots each use a pad like, starting at A
+        ^   A
+    <   v   >
+
+no robot can ever point to the gap
+
+029A
+980A
+179A
+456A
+379A
+
+point {
+    row: int,
+    col: int,
+}
+
+pad {
+    toButton: map[point]string
+    toPoint: map[string]point
+    gap: point
+}
+
+robot {
+    p: point,
+    pad: pad
+}
+
+for nPad map the possible paths from every button to every other
+for dPad map the possible paths from every button to every other
+
+start with the desired list of outputs and the number of robots chained to produce that list
+    robot[0] uses a number pad
+    all other robots use the direction pad
+starting with the last robot and working backward 
+    map the shortest possible paths between each pair of buttons
+    for each pair of buttons
+        grab the shortest possible paths from the map
+        translate each step through the last robot's map
+        filter the translations to the shortest paths
+Once robot[0] is mapped...
+Track the sum of complexities
+For each desired output
+    track a string of initial inputs required to generate that output
+    for each button
+        construct the pair of last button and desired button
+        grab the input for that pair from robot[0]'s map
+        add the input to the end of the initial inputs string
+    calculate the complexity of the total initial input string
+    add complexity to the complexity sum

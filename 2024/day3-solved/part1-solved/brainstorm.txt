@@ -1,0 +1,15 @@
+loop through the string and look for a valid multiplication problem, which looks like
+    
+    mul(d,d),
+    mul(d,dd),
+    mul(d,ddd),
+    mul(dd,d),
+    mul(dd,dd),
+    mul(dd,ddd),
+    mul(ddd,d),
+    mul(ddd,dd), or
+    mul(ddd,ddd)
+
+when found, add the result to the total
+return the total
+

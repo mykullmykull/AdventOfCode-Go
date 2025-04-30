@@ -1,0 +1,6 @@
+parse each line into a report [][]int
+loop through reports counting each safe one
+    if safe then count and break
+    loop through indexes
+        try that level and if safe then count and break
+

@@ -1,0 +1,16 @@
+parse into rules and updates
+loop through updates to find valids
+    loop through rules
+        if bef is in pageOrder and aft is in pageOrder and bef > aft then invalid
+    if valid, then add middle page number to total
+return total
+
+STRUCTS
+rule {
+    bef int
+    aft int
+}
+
+update {
+    pageOrder map[int]int
+}

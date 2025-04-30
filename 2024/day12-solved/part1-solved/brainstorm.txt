@@ -1,0 +1,13 @@
+uncounted regions are letters, counted regions are '.'s
+loop through rows and cols until you find a new region
+spread to other connected cells of the same letter, keeping track of area and perimeter
+	area is just the count of connected cells
+	perimeter is a running total of each adjacent (n, s, e, and w) cell that doesn't match the current letter
+
+	spread to collect all points in the region
+	area = len(points)
+	calculate perimeter
+	mark points as counted
+
+continue until no uncounted regions are found
+

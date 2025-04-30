@@ -1,0 +1,3 @@
+look at root, get the two monkeys it's waiting for, reduce both to numbers and humn, print both, solve for humn
+
+We need to genericify the current functions to look for any monkey

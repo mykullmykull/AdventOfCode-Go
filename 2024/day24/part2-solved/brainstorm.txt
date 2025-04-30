@@ -1,0 +1,4 @@
+rename part1's main as getZInt
+create new main that will
+1. parse input
+2. try different gate swapping with the new getZInt function to find the right combo

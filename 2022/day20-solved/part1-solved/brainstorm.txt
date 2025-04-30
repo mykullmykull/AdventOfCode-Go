@@ -1,0 +1,35 @@
+When moving an element, we need to
+    wrap it if it goes out of bounds
+    update the indexes of remaining elements to be moved
+
+
+STRUCTS
+    toMix:  []int
+    coords: []int
+
+    element struct {
+        startingPosition int
+        value int
+    }
+
+[x, x, x, -10, x]
+    [x, x, x, x]
+    [x, 10, x, x, x]
+
+[x, 10, x]
+    [x, x]
+    [x, 10, x]
+
+[x, x, x, x, x, x, x, x, x, 9]
+
+How to get the new index?
+    places to move = abs(val) % len(array)
+    direction to move = val / abs(val)
+    new index = old index + places to move * direction
+
+After getting the new index, update all toMix indexes
+    get max/min of old & new
+    loop through all toMix, updating those between min and max
+    if direction > 0 decrease the index
+    if direction < 0 increase the index
+

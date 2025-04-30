@@ -1,0 +1,6 @@
+Track registers A, B, and C
+Track position in the program
+Accumulate the outputs into a string separated by commas
+Execute the program until it terminates
+
+

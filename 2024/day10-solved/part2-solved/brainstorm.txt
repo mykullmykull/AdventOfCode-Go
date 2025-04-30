@@ -1,0 +1,4 @@
+find trailheads
+loop through each
+    track different trails from 0 to 9 (don't remove duplicates)
+    add to total rating the number of trails when altitude is 9

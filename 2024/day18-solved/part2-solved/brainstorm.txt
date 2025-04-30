@@ -1,0 +1,11 @@
+make a grid ([]string) of the right size
+mark corrupted spots
+start at 0,0
+spread out step by step in all directions, 
+    tracking each edge point
+    throwing away any moves that would hit a corrupted spots
+    ending when at least one new edge reaches the ending
+return the number of steps
+
+
+

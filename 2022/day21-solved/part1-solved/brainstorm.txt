@@ -1,0 +1,53 @@
+could collapse the array of monkeys
+    look at 1st monkey
+        if a number monkey then 
+            replace its name with its number in all other monkeys
+            remove it from the array
+        if a function monkey, then move it to the back of the array
+    loop 1st monkey is root at it has a number
+    complexity?
+        n for loop times
+            1 to find 1st monkey
+            n to replace
+            1 to remove 1st monkey or move it to the back
+    1 move root to the back
+    14 replace dbpl
+    1 move cczh to the back
+    13 replace zczc
+    1 move ptdq to the back
+    12 replace dvpt
+    11 replace lfqf
+    10 replace humn
+    9 replace ljgn
+    1 move sjmn to the back
+    8 replace sllz
+    1 move pppw to the back
+    1 move lgvd to the back
+    1 move drzm to the back
+    7 replace hmdt
+    1 move root to the back
+    ...
+
+could start with root and substitute
+    root: pppw + sjmn
+    root: (cczh / lfqf) + sjmn
+    root: ((sllz + lgvd) / lfqf) + sjmn
+    root: ((4 + lgvd) / lfqf) + sjmn
+    root: ((4 + (ljgn * ptdq)) / lfqf) + sjmn
+    root: ((4 + (2 * (humn - dvpt))) / lfqf) + sjmn
+    root: ((4 + (2 * (5 - dvpt))) / lfqf) + sjmn
+    root: ((4 + (2 * (5 - 3))) / lfqf) + sjmn
+    root: ((4 + (2 * (5 - 3))) / 4) + sjmn
+    root: ((4 + (2 * (5 - 3))) / 4) + (drzm * dbpl)
+    root: ((4 + (2 * (5 - 3))) / 4) + ((hmdt - zczc) * dbpl)
+    root: ((4 + (2 * (5 - 3))) / 4) + ((32 - zczc) * dbpl)
+    root: ((4 + (2 * (5 - 3))) / 4) + ((32 - 2) * dbpl)
+    root: ((4 + (2 * (5 - 3))) / 4) + ((32 - 2) * 5)
+    root: ((4 + (2 * (5 - 3))) / 4) + ((32 - 2) * 5)
+    root: ((4 + (2 * 2)) / 4) + ((32 - 2) * 5)
+    root: ((4 + 4) / 4) + ((32 - 2) * 5)
+    root: (8 / 4) + ((32 - 2) * 5)
+    root: 2 + ((32 - 2) * 5)
+    root: 2 + (30 * 5)
+    root: 2 + 150
+    root: 152

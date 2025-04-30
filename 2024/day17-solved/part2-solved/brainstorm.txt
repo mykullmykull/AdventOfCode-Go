@@ -1,0 +1,7 @@
+Find initial a that will output 2,4,1,1,7,5,4,6,0,3,1,4,5,5,3,0
+
+Loop through each output backwards starting from the end
+    loop through possible initial a's before the next step (nextAs) (for last step this would be [0])
+        the initial a before this step must be between 8 * nextA and 8 * nextA + 7
+        loop through those possibilities, 
+            collect as newNextAs all initial a's that generate the target output

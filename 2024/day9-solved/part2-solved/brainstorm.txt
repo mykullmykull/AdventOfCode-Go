@@ -1,0 +1,19 @@
+The real input is too long to expand into the string format suggested in the example
+But, we can simulate the same thing by tracking each file's starting index
+
+parse input into files (id, size) and spaces (size)
+loop through files last to first
+    loop through spaces first to last
+        if file.size > space.size
+            continue
+        
+        file.startingIndex = space.startingIndex
+        space.startingIndex += file.size
+        space.size -= file.size
+        if space.size <= 0
+            remove space
+        break
+
+generate checkum by looping through files
+    loop through file size
+        checksum += file.id * (file.startingIndex + x)

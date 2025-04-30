@@ -1,0 +1,36 @@
+Track each elf's position on a grid of strings
+Each of 10 rounds:
+    Expand grid by 1 in each direction that elf is touching the edge
+    Swap each # with an arrow designating their proposed move, and mark each proposed destination with O
+        If ever a proposed destination already has an O then change the O to an X
+        loop
+            if 'O'
+                Replace the arrow pointing to it with .
+                Replace it with #
+            if 'X'
+                Replace all arrows pointing to it with #
+                Replace X with .
+Shrink grid until an elf is touching each edge
+Count empty spaces
+
+grid []string
+
+const (
+    nw = vector{-1, -1}
+    nn = vector{}
+    ne = 2
+    ee = 3
+    se = 4
+    ss = 5
+    sw = 6
+    ww = 7
+)
+ds = [nn, ss, ww, ee]
+
+lookAround(row int, col int) []string
+canMove(block []string, d int) int
+isNEmpty(block []string) bool
+isSEmpty(block []string) bool
+isWEmpty(block []string) bool
+isEEmpty(block []string) bool
+

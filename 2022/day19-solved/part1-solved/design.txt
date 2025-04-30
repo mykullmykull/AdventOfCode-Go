@@ -1,0 +1,23 @@
+Design
+
+	For each branch
+		skip the entire branch if ever...
+			not enough time to save for the next robot
+			// branch builds 2 before 1 or 3 before 2
+			//  tried this, and it made the test slower
+		save for the next robot
+		update time, materials, and robots
+
+what do we need to track?
+	branch
+		Order of robots to build, up to a possible 24 robots (one per minute)
+
+	state
+		- branch
+			Array of enums, index of next robot = total robots - 1
+		- materials
+			Array of ints, index = enum
+		- robots
+			Array of ints, index = enum
+		- costs per robot type
+			map of enum to array of ints

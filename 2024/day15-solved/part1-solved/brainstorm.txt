@@ -1,0 +1,7 @@
+track the robot (point)
+process each move
+    look ahead of the robot,
+        if there is a box, keep looking
+        if there is a wall, don't move anything
+        if there is a space, then move all boxes and robot one space
+Loop through the grid, adding the GPS value of every box

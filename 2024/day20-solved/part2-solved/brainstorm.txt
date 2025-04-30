@@ -1,0 +1,31 @@
+map basic path to point => steps
+consider starting a cheat at every point
+        skip if not '#'
+        cheatStartStep = lowest adjacent step + 1
+        consider ending the cheat at every point
+                skip if not '.'
+                cheatLength = abs(cheatStart.row - cheatEnd.row) + abs(cheatStart.col - cheatEnd.col)
+                skip if cheat length > 20
+                cheatSteps = cheatStartStep + cheatLength
+                savings = normalStep - cheatSteps
+                count if savings >= target
+
+
+write and test:
+x   update map, replace outer walls with *
+x   function to find the shortest route between S and E
+x   function to add a cheat to the map (erase walls)
+x   function to loop through all possible cheats
+        must start at a wall
+        must end at a path
+        must be less than 21 steps
+x   function to count cheats that save at least 100ps
+
+run with cheat
+    mark cheat start as 1
+    mark cheat end as 2
+    t1 = from S to 1
+    t2 = cheat length
+    t3 = from 2 to E
+    time = run1 + run2 + run3
+

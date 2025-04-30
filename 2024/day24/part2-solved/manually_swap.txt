@@ -1,0 +1,333 @@
+swap
+z05, gdd
+z09, cwt
+jmv, css
+z01, z02
+
+
+
+zn = (xn XOR yn) XOR cn-1   cn = (xn AND yn) ORR (cn-1 AND (xn XOR yn))
+
+ex1 = (xn XOR yn)
+znn = ex1 XOR cn-1
+ex2 = ex1 AND cn-1
+ex3 = (xn AND yn)
+cnn = ex2 ORR ex3
+
+c-1 = false
+
+00
+ex1 = y00 XOR x00 -> z00 = 0
+z00 = y00 XOR x00 -> z00 = 0
+ex2 =                    = 0
+ex3 = y00 AND x00 -> pjf = 1
+c00 = pjf                = 1
+
+01
+ex1 = y01 XOR x01 -> fcg = 0
+z01 = fcg XOR pjf -> z01 = 1
+ex2 = pjf AND fcg -> vms = 0
+ex3 = y01 AND x01 -> vpb = 1
+c01 = vms ORR vpb -> kmq = 1
+
+02
+ex1 = x02 XOR y02 -> jdc = 0
+z02 = jdc XOR kmq -> z02 = 1
+ex2 = kmq AND jdc -> ssj = 0
+ex3 = x02 AND y02 -> msn = 1
+c02 = msn ORR ssj -> vfb = 1
+
+03
+ex1 = y03 XOR x03 -> fpt
+z02 = vfb XOR fpt -> z03
+ex2 = vfb AND fpt -> hpb
+ex3 = y03 AND x03 -> scc
+c03 = hpb ORR scc -> ngk
+
+04
+ex1 = x04 XOR y04 -> vvf
+z04 = ngk XOR vvf -> z04
+ex2 = ngk AND vvf -> hpm
+ex3 = y04 AND x04 -> mrw
+c04 = hpm ORR mrw -> knc
+
+05
+ex1 = x05 XOR y05 -> wcq
+z05 = knc XOR wcq -> z05
+ex2 = wcq AND knc -> gnw
+ex3 = y05 AND x05 -> gdd
+c05 = gnw ORR gdd -> trn
+
+06
+ex1 = x06 XOR y06 -> pgk
+z06 = trn XOR pgk -> z06
+ex2 = trn AND pgk -> hsk
+ex3 = x06 AND y06 -> vts
+c06 = vts ORR hsk -> vfw
+
+07
+ex1 = x07 XOR y07 -> mqt
+z07 = vfw XOR mqt -> z07
+ex2 = vfw AND mqt -> ndj
+ex3 = x07 AND y07 -> vqr
+c07 = vqr ORR ndj -> fqf
+
+08
+ex1 = y08 XOR x08 -> jwq
+z08 = fqf XOR jwq -> z08
+ex2 = jwq AND fqf -> tgv
+ex3 = x08 AND y08 -> cfk
+c08 = tgv ORR cfk -> wgh
+
+09
+ex1 = x09 XOR y09 -> jnf
+z09 = jnf XOR wgh -> z09
+ex2 = jnf AND wgh -> kvg
+ex3 = x09 AND y09 -> sgj
+c09 = kvg ORR sgj -> cwt
+
+10
+ex1 = x10 XOR y10 -> wfd
+z10 = cwt XOR wfd -> z10
+ex2 = cwt AND wfd -> wjk
+ex3 = x10 AND y10 -> ktk
+c10 = wjk ORR ktk -> kmn
+
+11
+ex1 = x11 XOR y11 -> dmk
+z11 = kmn XOR dmk -> z11
+ex2 = kmn AND dmk -> skq
+ex3 = x11 AND y11 -> rsw
+c11 = skq ORR rsw -> wsh
+
+12
+ex1 = y12 XOR x12 -> bwv
+z12 = bwv XOR wsh -> z12
+ex2 = wsh AND bwv -> tnr
+ex3 = x12 AND y12 -> bgb
+c12 = bgb ORR tnr -> vnq
+
+13
+ex1 = y13 XOR x13 -> wqh
+z13 = vnq XOR wqh -> z13
+ex2 = vnq AND wqh -> wmb
+ex3 = x13 AND y13 -> hwb
+c13 = hwb ORR wmb -> ctf
+
+14
+ex1 = x14 XOR y14 -> tnm
+z14 = ctf XOR tnm -> z14
+ex2 = ctf AND tnm -> wpm
+ex3 = x14 AND y14 -> kbk
+c14 = kbk ORR wpm -> sgn
+
+15
+ex1 = y15 XOR x15 -> smv
+z15 = sgn XOR smv -> z15
+ex2 = smv AND sgn -> qkc
+ex3 = y15 AND x15 -> sqw
+c15 = qkc ORR sqw -> hjd
+
+16
+ex1 = y16 XOR x16 -> jhn
+z16 = jhn XOR hjd -> z16
+ex2 = jhn AND hjd -> nfk
+ex3 = x16 AND y16 -> hvp
+c16 = hvp ORR nfk -> pth
+
+17
+ex1 = x17 XOR y17 -> gbv
+z17 = pth XOR gbv -> z17
+ex2 = gbv AND pth -> hns
+ex3 = x17 AND y17 -> nkr
+c17 = nkr ORR hns -> swb
+
+18
+ex1 = y18 XOR x18 -> qvq
+z18 = swb XOR qvq -> z18
+ex2 = swb AND qvq -> gtv
+ex3 = y18 AND x18 -> pjr
+c18 = gtv ORR pjr -> crc
+
+19
+ex1 = y19 XOR x19 -> vmj
+z19 = crc XOR vmj -> z19
+ex2 = vmj AND crc -> pbd
+ex3 = y19 AND x19 -> sjt
+c19 = sjt ORR pbd -> vch
+
+20
+ex1 = y20 XOR x20 -> css
+z20 = vch XOR css -> z20
+ex2 = vch AND css -> cjn
+ex3 = y20 AND x20 -> jmv
+c20 = cjn ORR jmv -> jgb
+
+21
+ex1 = y21 XOR x21 -> qbm
+z21 = qbm XOR jgb -> z21
+ex2 = jgb AND qbm -> jdb
+ex3 = y21 AND x21 -> jvm
+c21 = jdb ORR ccs -> bkg
+
+22
+ex1 = y22 XOR x22 -> tgw
+z22 = tgw XOR bkg -> z22
+ex2 = bkg AND tgw -> vrw
+ex3 = y22 AND x22 -> kkq
+c22 = vrw ORR kkq -> jjr
+
+23
+ex1 = y23 XOR x23 -> vph
+z23 = vph XOR jjr -> z23
+ex2 = vph AND jjr -> qbs
+ex3 = y23 AND x23 -> vht
+c23 = qbs ORR vht -> sfw
+
+24
+ex1 = y24 XOR x24 -> skp
+z24 = sfw XOR skp -> z24
+ex2 = sfw AND skp -> qjj
+ex3 = x24 AND y24 -> wkt
+c24 = wkt ORR qjj -> tgj
+
+25
+ex1 = y25 XOR x25 -> ktd
+z25 = ktd XOR tgj -> z25
+ex2 = tgj AND ktd -> kht
+ex3 = y25 AND x25 -> gfk
+c25 = kht ORR gfk -> cds
+
+26
+ex1 = x26 XOR y26 -> wws
+z26 = cds XOR wws -> z26
+ex2 = wws AND cds -> kgv
+ex3 = y26 AND x26 -> rdq
+c26 = kgv ORR rdq -> stt
+
+27
+ex1 = y27 XOR x27 -> wcr
+z27 = stt XOR wcr -> z27
+ex2 = stt AND wcr -> krw
+ex3 = x27 AND y27 -> hbj
+c27 = krw ORR hbj -> nkt
+
+28
+ex1 = y28 XOR x28 -> kgm
+z28 = nkt XOR kgm -> z28
+ex2 = kgm AND nkt -> dgc
+ex3 = x28 AND y28 -> ntm
+c28 = dgc ORR ntm -> hrs
+
+29
+ex1 = y29 XOR x29 -> mvf
+z29 = mvf XOR hrs -> z29
+ex2 = hrs AND mvf -> jbj
+ex3 = y29 AND x29 -> rrc
+c29 = jbj ORR rrc -> cvn
+
+30
+ex1 = y30 XOR x30 -> gmp
+z30 = cvn XOR gmp -> z30
+ex2 = cvn AND gmp -> trk
+ex3 = y30 AND x30 -> trs
+c30 = trk ORR trs -> nvk
+
+31
+ex1 = x31 XOR y31 -> brp
+z31 = nvk XOR brp -> z31
+ex2 = brp AND nvk -> rfn
+ex3 = x31 AND y31 -> pmm
+c31 = rfn ORR pmm -> mhh
+
+32
+ex1 = y32 XOR x32 -> hbg
+z32 = hbg XOR mhh -> z32
+ex2 = mhh AND hbg -> sqt
+ex3 = y32 AND x32 -> nqs
+c32 = sqt ORR nqs -> kns
+
+33
+ex1 = x33 XOR y33 -> gvt
+z33 = kns XOR gvt -> z33
+ex2 = gvt AND kns -> nmv
+ex3 = y33 AND x33 -> wjj
+c33 = nmv ORR wjj -> gfr
+
+34
+ex1 = x34 XOR y34 -> jwk
+z34 = gfr XOR jwk -> z34
+ex2 = jwk AND gfr -> cph
+ex3 = x34 AND y34 -> hgg
+c34 = hgg ORR cph -> kjr
+
+35
+ex1 = y35 XOR x35 -> qjb
+z35 = qjb XOR kjr -> z35
+ex2 = kjr AND qjb -> rpr
+ex3 = y35 AND x35 -> wcs
+c25 = wcs ORR rpr -> fgt
+
+36
+ex1 = y36 XOR x36 -> sqq
+z36 = sqq XOR fgt -> z36
+ex2 = fgt AND sqq -> bmm
+ex3 = y36 AND x36 -> gst
+c36 = gst ORR bmm -> nwb
+
+37
+ex1 = y37 XOR x37 -> vcr
+z37 = vcr AND nwb -> z37
+ex2 = vcr XOR nwb -> pqt
+ex3 = x37 AND y37 -> dgn
+c37 = dgn ORR pqt -> hjg
+
+38
+ex1 = y38 XOR x38 -> ghm
+z38 = ghm XOR hjg -> z38
+ex2 = ghm AND hjg -> sqd
+ex3 = x38 AND y38 -> dtt
+c38 = sqd ORR dtt -> mdn
+
+39
+ex1 = x39 XOR y39 -> wmf
+z39 = mdn XOR wmf -> z39
+ex2 = wmf AND mdn -> qnn
+ex3 = x39 AND y39 -> rrn
+c39 = qnn ORR rrn -> fvw
+
+40
+ex1 = y40 XOR x40 -> wdj
+z40 = fvw XOR wdj -> z40
+ex2 = wdj AND fvw -> dvr
+ex3 = x40 AND y40 -> wtv
+c40 = dvr ORR wtv -> dwg
+
+41
+ex1 = y41 XOR x41 -> fsh
+z41 = fsh XOR dwg -> z41
+ex2 = dwg AND fsh -> brb
+ex3 = x41 AND y41 -> dqw
+c41 = dqw ORR brb -> btn
+
+42
+ex1 = x42 XOR y42 -> vcf
+z42 = vcf XOR btn -> z42
+ex2 = vcf AND btn -> fbb
+ex3 = y42 AND x42 -> thc
+c42 = fbb ORR thc -> mcf
+
+43
+ex1 = y43 XOR x43 -> cch
+z43 = cch XOR mcf -> z43
+ex2 = mcf AND cch -> kcq
+ex3 = x43 AND y43 -> dcc
+c43 = kcq ORR dcc -> cpw
+
+44
+ex1 = x44 XOR y44 -> dph
+z44 = cpw XOR dph -> z44
+ex2 = cpw AND dph -> gkb
+ex3 = y44 AND x44 -> mgv
+c44 = gkb ORR mgv -> z45
+

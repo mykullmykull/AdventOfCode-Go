@@ -1,0 +1,5 @@
+Find equation (no division problems can be rounded until saved as int)
+solve for b
+solve for a
+check if point is met
+add to total

@@ -1,0 +1,48 @@
+should track
+    facing (rowChange, colChange)
+    position (row, col)
+    instructions
+
+pop first instruction off the front
+    either R
+    or L
+    or a number (get string before the next R or L)
+
+adjust facing based on instruction
+
+move position based on instruction
+
+repeat until no instructions left
+
+
+How to move most efficiently
+    track row widths
+    track col heights
+    track wall positions
+
+    when moving, 
+        if nearest wall (considering wrapping) is within the planned move
+            move to wall
+        if move exceeds width/height
+            wrap
+
+board struct {
+    grid []string
+    walls [][]int
+    rowMins []int
+    rowMaxs []int
+    colMins []int
+    colMaxs []int
+    row int
+    col int
+    facingRow int
+    facingCol int
+    instructions string
+}
+
+parse([]string) board
+board.getInstruction() (string, string)
+board.turn(string) board
+board.move(string) board
+    board.distanceToNearestWall() int
+    board.wrap(int) board

@@ -1,0 +1,1 @@
+once finished, set elves to just the finish, then run until at the start, then run until the finish

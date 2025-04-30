@@ -1,0 +1,17 @@
+parse towels
+parse patterns
+track possiblePatternsCount
+loop through patterns to see if isPossible
+    track []stacks{
+        indexes: []int,
+        pattern: string,
+        goal: string,
+    }
+    loop through stacks
+        loop through towels
+            if adding newTowel will work then 
+                if perfect return true
+                create new stack
+
+
+

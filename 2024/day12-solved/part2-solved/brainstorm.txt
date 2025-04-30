@@ -1,0 +1,34 @@
+uncounted cells are letters
+cells to count are '#'s
+counted cells are '.'s
+
+loop through rows and cols until you find a new region
+mark connected cells of the same letter as '#'
+count '#'s for area
+
+mark cells with symbols for the walls
+    # = no walls
+    - = tp wall
+    ] = rt walls
+    _ = bm wall
+    [ = lt walls
+    1 = tp and rt
+    2 = tp and bm
+    3 = tp and lt
+    4 = tp, rt, and bm
+    5 = tp, bm, and lt
+    6 = tp, lt, and rt
+    7 = tp, rt, bm, and lt
+    8 = rt and bm
+    9 = rt and lt
+    0 = rt, bm, and lt
+    ! = bm and lt 
+
+loop through rows and cols counting 
+    tp walls where the cell to the left doesn't have a tp wall
+    rt walls where the cell above doesn't have a rt wall
+    bm walls where the cell to the left doesn't have a bm wall
+    lt walls where the cell above doesn't have a lt wall
+
+mark all non-letters as '.'
+

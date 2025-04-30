@@ -1,0 +1,9 @@
+parse the input into [][]int
+loop through each row
+    loop through each index
+        if index == 0 then set slope (increasing or decreasing)
+        if next level is going the wrong way, return false
+        if next level is too far away (diff > 3), return false
+    if we haven't returned yet, return true
+    
+    if row is safe true, then add 1 to total
