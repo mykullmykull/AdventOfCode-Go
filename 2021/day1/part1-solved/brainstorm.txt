@@ -1,0 +1,3 @@
+loop through ints, 
+keep track of the last int, 
+count if current int is greater than last int

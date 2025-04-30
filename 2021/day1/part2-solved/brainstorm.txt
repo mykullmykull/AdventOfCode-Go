@@ -1,0 +1,4 @@
+loop through ints, 
+keep track of the sum,
+count if current sum is greater than last int,
+update sum by subtracting the int 2 back and adding the current int
