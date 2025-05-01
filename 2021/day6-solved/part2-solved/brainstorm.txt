@@ -1,0 +1,25 @@
+start with fishes := []int{...}
+count days to 256
+each day, loop through each fish
+    if fish == 0
+        add 8 to fishes
+        set fish to 6
+        continue
+    subtract 1 from fish
+
+looping is too slow
+instead, use a map to count the number of fishes at each age
+start with fishes := [9]int{...} where each index is the age
+count days to 256
+each day, loop through each age
+    create a new map with
+        age 0 = fishes[age 1]
+        age 1 = fishes[age 2]
+        age 2 = fishes[age 3]
+        age 3 = fishes[age 4]
+        age 4 = fishes[age 5]
+        age 5 = fishes[age 6]
+        age 6 = fishes[age 7] + fishes[age 0]
+        age 7 = fishes[age 8]
+        age 8 = fishes[age 0]
+    set fishes to the new map

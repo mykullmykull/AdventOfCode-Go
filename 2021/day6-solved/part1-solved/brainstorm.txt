@@ -1,0 +1,8 @@
+start with fishes := []int{...}
+count days to 80
+each day, loop through each fish
+    if fish == 0
+        add 8 to fishes
+        set fish to 6
+        continue
+    subtract 1 from fish
