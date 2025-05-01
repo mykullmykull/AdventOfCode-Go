@@ -1,0 +1,5 @@
+start with x=0, y=0
+loop through each line
+split the line into direction and distance
+switch on the direction to update x and y
+return final x * y

@@ -1,0 +1,13 @@
+copy all lines to o2 and co2
+
+get the most common line from o2 and co2
+loop through position
+    loop through each line
+        count zeros and ones
+        get most common bit
+    loop through each line again
+        if only 1 line left, return it
+        if line's bit doesn't match most common, remove it
+
+convert from binary to decimal
+return o2 * co2

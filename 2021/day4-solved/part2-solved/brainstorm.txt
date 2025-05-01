@@ -1,0 +1,32 @@
+parse draws and boards
+    board := [][]string{}
+
+loop through draws
+    loop through each board
+        mark the number if drawn
+        check if board is a winner
+        if board is a winner
+            calculate score
+            return score
+
+mark number
+    loop through rows
+        loop through columns
+            if number is found, update board
+
+check for winner
+    check rows
+        if all numbers are marked, return true
+    check columns
+        if all numbers are marked, return true
+    return false
+
+remove winning board and continue until no boards are left
+
+calculate score of the final board
+    loop through rows
+        loop through columns
+            if number is not marked, add to score
+    multiply score by last drawn number
+
+

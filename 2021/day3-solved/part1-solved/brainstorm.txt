@@ -1,0 +1,8 @@
+build gamma and epsilon strings
+loop through position
+loop through each line
+count zeros and ones
+most common bit is added to gamma
+least common bit is added to epsilon
+convert from binary to decimal
+return gamma * epsilon

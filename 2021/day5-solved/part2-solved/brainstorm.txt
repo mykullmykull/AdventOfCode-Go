@@ -1,0 +1,10 @@
+get max x and y from the input
+    loop through input
+    split to start and end
+    split startX, startY, endX, and endY
+    loop through []int{startX, startY, endX, endY}
+    track maxX and maxY
+    return maxX and maxY
+build a seaFloorMap := [maxY][maxX]int
+loop through each line and update the seaFloorMap
+count the number of points >= 2

@@ -1,0 +1,11 @@
+copy all lines to o2 and co2
+
+loop through position
+loop through each line
+count zeros and ones
+build string of most common bits    NOPE, we need to re-evaluate the most common bits every time we remove a line
+
+remove from o2 any lines where each bit doesn't match most common bit
+remove from co2 any lines where each bit doesn't match least common bit
+convert from binary to decimal
+return gamma * epsilon
