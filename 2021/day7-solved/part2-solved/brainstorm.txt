@@ -1,0 +1,20 @@
+get min and max of all the values
+the cheapest spot has to be between them
+loop from min to max
+    for each position, calculate the cost
+    if cost < minCost
+        set minCost to cost
+        set minPos to pos
+print minPs
+return minCost
+
+calculate cost
+    cost += factorial(abs(pos - fish))
+
+factorial
+    pair := 1 + n
+    extraForOdds := 0
+    if n % 2 == 1
+        extraForOdds := n / 2 + 1
+
+    pair * (n / 2) + extraForOdds

@@ -1,0 +1,9 @@
+get min and max of all the values
+the cheapest spot has to be between them
+loop from min to max
+    for each position, calculate the cost
+    if cost < minCost
+        set minCost to cost
+        set minPos to pos
+print minPs
+return minCost

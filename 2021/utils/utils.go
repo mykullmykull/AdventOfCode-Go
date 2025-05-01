@@ -164,3 +164,12 @@ func BinToInt(bin string) int {
 func IntToBin(i int) string {
 	return fmt.Sprintf("%b", i)
 }
+
+func Factorial(n int) int {
+	pair := 1 + n
+	extraForOdds := 0
+	if n%2 == 1 {
+		extraForOdds = n/2 + 1
+	}
+	return pair*(n/2) + extraForOdds
+}
