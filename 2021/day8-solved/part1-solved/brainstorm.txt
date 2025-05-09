@@ -1,0 +1,4 @@
+loop through input
+split on | and ignore anything before the first |
+loop through each string
+count any string with length 2, 4, 3, or 7

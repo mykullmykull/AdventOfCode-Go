@@ -1,0 +1,21 @@
+filter once
+eliminateDigits
+    number of wires != number of litSegs
+
+eliminateSegs
+    wire does NOT belong to a wireStr with a possible digit with that segment
+
+eliminateMatchedSegs
+    a small group of wires have the same small number of possible segments
+
+hypotheticals
+    loop through wires
+        loop through possible segments
+            assume that wire = segment
+            loop through wStr
+                if impossible, then remove that segment from wire's possible segments
+                    wStr has that wire, but not that segment
+                    wStr has that segment, but not that wire
+                    
+                    maybe others?
+            
