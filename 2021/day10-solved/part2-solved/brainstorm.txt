@@ -1,0 +1,8 @@
+track slice of scores
+loop through lines
+    if hasBadCloseer continue
+    get closers
+    calculate score
+    add score to slice
+sort slice
+return middle score

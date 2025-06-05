@@ -1,0 +1,4 @@
+loop through rows
+    loop through columns
+        if isLowpoint, the add to riskLevels + 1
+return riskLevels

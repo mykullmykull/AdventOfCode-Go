@@ -1,0 +1,4 @@
+same as part1 except 
+    count the number of octopi that flash each step
+    if that number is 100 then return the step number
+

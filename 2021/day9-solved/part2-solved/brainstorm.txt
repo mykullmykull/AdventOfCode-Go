@@ -1,0 +1,25 @@
+get slice of low points
+get slice of basin sizes
+sort slice
+multiply the largest three elements
+
+
+getBasinSizes
+loop through low points
+    copy input
+    mark point with +
+    hasChanged = true
+    for hasChanged
+        hasChanged = false
+        loop through points
+            if point value is 9, continue
+            if point is next to +, 
+                mark it with +
+                hasChanged = true
+    count +
+
+        
+
+
+
+

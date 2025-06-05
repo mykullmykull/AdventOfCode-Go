@@ -1,0 +1,27 @@
+cave {
+    octopuses []string
+    flashing int
+    countFlashes int
+}
+
+loop through 100 steps
+    flashing = 0
+    loop through each oct
+        cave = increase(r, c)
+    for flashing > 0
+        loop through each oct
+            if oct == *
+                mark as x meaning it has flashed
+                flashing--
+                consider each adjacent oct
+                    increase(r, c)
+
+
+increase(r, c) cave {
+    if oct == 9
+        mark as * meaning it is about to flash
+        flashing++
+        countFlashes++
+        continue
+    add 1 to oct
+}

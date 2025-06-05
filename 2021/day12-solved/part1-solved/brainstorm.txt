@@ -1,0 +1,14 @@
+convert input to map[string](map[string]bool)
+compile a final map of all possible paths
+keep a slice of partial paths starting with [][]string{{"start"}}
+for len(partials) > 0
+    pop the first path in progress
+    for each cave connected
+        if cave == "end"
+            add path to final paths
+            continue
+        if cave is small and already in path
+            continue
+        add cave to path
+        add path to partials
+return length of final paths

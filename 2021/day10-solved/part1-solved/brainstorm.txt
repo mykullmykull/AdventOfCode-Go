@@ -1,0 +1,18 @@
+score = 0
+loop through lines
+find firstIllegalChar
+score += points[firstIllegalChar]
+return score
+
+findFirstIlligalChar
+track expectedClosers
+loop through string
+    if char is opener
+        add closer to front of expectedClosers
+    if char is closer
+        if char != expectedClosers[0]
+            return char
+        else
+            expectedClosers = expectedClosers[1:]
+    else panic
+return ''

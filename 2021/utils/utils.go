@@ -15,6 +15,18 @@ func Atoi(str string) int {
 	return i
 }
 
+func Rtoi(r rune) int {
+	return Atoi(string(r))
+}
+
+func Btoi(b byte) int {
+	return Rtoi(rune(b))
+}
+
+func Itoa(i int) string {
+	return strconv.Itoa(i)
+}
+
 func Abs(n int) int {
 	if n < 0 {
 		return n * -1

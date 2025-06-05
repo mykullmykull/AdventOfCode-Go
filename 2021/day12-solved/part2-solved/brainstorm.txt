@@ -1,0 +1,64 @@
+THE ASK
+use depth-first search to find all paths from start to end
+where a small cave can be visited at most once, except for one small cave which can be visited twice
+return the number of unique paths
+
+THE STRATEGY
+map all cave connections
+build a path to the end
+    track 
+        whether or note we've used our one duplicate visit
+        the caves visited
+        the indexes of caves in the path
+    add next cave
+        to list of caves
+        to list of indexes
+    if ever we reach the end
+        increment the count of unique paths
+        rewind 
+        add next cave
+    if ever we see a duplicate small cave
+        if we have used our duplicate, 
+            rewind
+            add next cave
+        if we have not used our duplicate visit, mark the duplicate as used and continue 
+
+to rewind
+    pop the last cave from the list of caves
+    pop the last index from the list of indexes
+
+    if the last cave was "start"
+        mark stillCounting as false
+        return
+
+    if the last cave was the duplicate cave, mark the duplicate as unused
+    if the last cave was a small cave, mark it as unused
+
+to add next cave
+    increment lastIndex
+    look up connections for the new last cave
+    if lastIndex++ is > the length of connections, 
+        rewind 
+        add next cave
+        return
+    if next cave is a duplicate small cave
+        if usedRepeat is true
+            rewind
+            add next cave
+            return
+        mark usedRepeat as true
+    Add the next cave to
+        visited,
+        path,
+        indexes
+
+
+DATA STRUCTURES
+    caves: {
+        countPaths  int
+        visited     map[string]int
+        usedRepeat  bool
+        path        []string
+        indexes     []int
+    }
+    connections: map[string][]string
