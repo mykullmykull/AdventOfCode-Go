@@ -1,0 +1,11 @@
+We'll be working with a probe launch simulation, and aiming for a predefined target area. 
+We need to find the highest y-coordinate the probe can reach while still landing in the target area at the end of any complete step.
+
+Find the successful range of initial x velocities:
+-The x velocity must be positive and will decrease by 1 each step until it reaches 0.
+-x = max(1/2 vx, vx * step - 1/2 * step^2)
+
+Increase the initial y velocity, track successful ys, until the probe passes the target area even for the lowest x velocity.
+-The y velocity will decrease by 1 each step
+-y = vy * step - 1/2 * step^2
+

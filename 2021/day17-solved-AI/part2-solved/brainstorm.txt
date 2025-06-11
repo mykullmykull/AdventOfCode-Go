@@ -1,0 +1,8 @@
+find min velX,
+find min velY,
+loop from min velX++
+    loop from min velY++
+        if probe touches target area, count successful launch,
+        if probe passes target area, break inner loop
+    if probe passes target area, break outer loop
+
