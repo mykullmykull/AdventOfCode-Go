@@ -1,0 +1,8 @@
+THE ASK
+Complete all folds, print the dots, read the code
+
+THE STRATEGY
+find folds
+loop through each folds
+    loop through the dots and make a map of folded dots
+return map count

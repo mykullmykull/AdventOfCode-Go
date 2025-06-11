@@ -1,0 +1,12 @@
+track a count of each possible pair pairCount
+loop over 10 steps
+    generate a newPairCount
+    each pair AB with insertion C, 
+        newPairCount[AC] += pairCount[AB]
+        newPairCount[CB] += pairCount[AB]
+
+count the occurrences of each letter
+    each letter will show up twice, except for the first and last letters of the initial string which won't ever change
+    add 1 more to the counts of the first and last letter
+    divide all counts by 2
+return most common - least common

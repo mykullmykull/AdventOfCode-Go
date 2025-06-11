@@ -1,0 +1,12 @@
+THE ASK
+Complete the first fold and count the dots
+
+THE STRATEGY
+loop through the dots and make a map of folded dots
+return map count
+
+
+
+
+
+

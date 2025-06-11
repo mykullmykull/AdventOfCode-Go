@@ -1,0 +1,21 @@
+define how to handle a binary packet
+
+    map[int]packet{} (where key is the int conversion of the packet header)
+    packet: {
+        parent: int: // the key of the parent packet, -1 if top-level
+        version: int: // bits 0-2
+        type: int: // bits 3-5
+        length_type: int:
+            if type == 4 then nil
+            else bit 6
+        sub-packets-length: int:
+            if type == 4 then nil
+            if length_type == 0 then next 15 bits to int
+            if length_type == 1 then next 11 bits to int
+        sub-packets: []packet,
+            if type == 4 then nil
+            if length_type == 0 then parse next sub-packets-length of bits to packets
+            if length_type == 1 then parse next sub-packets-length of packets to packets
+    }
+
+convert initial input hexidecimal to binary

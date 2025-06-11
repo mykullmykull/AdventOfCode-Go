@@ -1,0 +1,17 @@
+track a riskMap map[point]int
+track a grid of calculated risks, marking each point with "x" if it has been calculated
+update the riskMap in order spreading from the top left to the lowest adjacent points
+
+initialize 
+    risk total to value of top left point
+    riskMap with top left point = risk total
+    grid with top left point marked as "x"
+
+each step
+    find the min value on the grid adjacent to an "x"
+    add min to the risk total
+    for every grid point == min and is next to an "x"
+        mark the point with "x"
+        add the point to the riskMap with value = risk total
+
+return riskMap[bottom left point]
