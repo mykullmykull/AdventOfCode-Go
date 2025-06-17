@@ -1,0 +1,93 @@
+scanner s0 is our base
+track a map of beacons translated into s0's perspective
+
+loop through all other scanners
+    loop through possible rotation and flipation combinations for s2
+        loop through all pairs of beacons seen by each scanner (b1 from s0, b2 from s2)
+            calculate the translation needed to match b2 to b1 given the rotation and flipation
+                count how many other beacons match with this manipulator
+                if count >= 12
+                    we know s2's rotation and translation
+                    apply rotation and translation to all beacons seen by s2, and add them to s0's map
+                else 
+                    panic("couldn't find 12 matches between s0 and s2")
+
+return length of s0's map
+
+Function list from bottom to top:
+    (m manipulator) rotate(beacon [3]int) [3]int
+    (m manipulator) flip(beacon [3]int) [3]int
+    (m manipulator) translate(beacon [3]int) [3]int
+    (m manipulator) getTranslation(beacon1, beacon2 [3]int) [3]int
+    (s scanner) manipulateBeacons() scanner
+    (s2 scanner) countMatches(s2 scanner) int
+    (s scanner) addBeaconsToMap(m map[string]bool) map[string]bool
+
+
+
+Structs
+    Consts
+        allRotations:  [][3]int // all possible rotations of a beacon
+        allFlipations: [][3]int // all possible flipations of a beacon
+    Manipulator
+        rotationX: int // which index should each coord be rotated to
+        flipationX: int // which direction should each coord be flipped to
+        translation: [3]int // what to add to each coord after rotation to match s0's perspective
+    Beacon [3]int // represents a beacon in 3D space relative to s0's position and orientation
+    Scanner
+        id: int
+        beacons: []Beacon // list of beacons seen by this scanner in its own perspective
+        manipulator: Manipulator // how to translate this scanner's beacons to s0's perspective
+
+All possible rotations
+                    rotation    flipation
+
+    x	y	z       0,1,2       1,1,1
+    x	y	-z      0,1,2       1,1,-1
+    x	-y	z       0,1,2       1,-1,1
+    x	-y	-z      0,1,2       1,-1,-1
+    x	z	y       0,2,1       1,1,1
+    x	z	-y      0,2,1       1,1,-1
+    x	-z	y       0,2,1       1,-1,1
+    x	-z	-y      0,2,1       1,-1,-1
+    -x	y	z       0,1,2       -1,1,1
+    -x	y	-z      0,1,2       -1,1,-1
+    -x	-y	z       0,1,2       -1,-1,1
+    -x	-y	-z      0,1,2       -1,-1,-1
+    -x	z	y       0,2,1       -1,1,1
+    -x	z	-y      0,2,1       -1,1,-1
+    -x	-z	y       0,2,1       -1,-1,1
+    -x	-z	-y      0,2,1       -1,-1,-1
+    y	x	z       1,0,2       1,1,1
+    y	x	-z      1,0,2       1,1,-1
+    y	-x	z       1,0,2       1,-1,1
+    y	-x	-z      1,0,2       1,-1,-1
+    y	z	x       1,2,0       1,1,1
+    y	z	-x      1,2,0       1,1,-1
+    y	-z	x       1,2,0       1,-1,1
+    y	-z	-x      1,2,0       1,-1,-1
+    -y	x	z       1,0,2       -1,1,1
+    -y	x	-z      1,0,2       -1,1,-1
+    -y	-x	z       1,0,2       -1,-1,1
+    -y	-x	-z      1,0,2       -1,-1,-1
+    -y	z	x       1,2,0       -1,1,1
+    -y	z	-x      1,2,0       -1,1,-1
+    -y	-z	x       1,2,0       -1,-1,1
+    -y	-z	-x      1,2,0       -1,-1,-1
+    z	x	y       2,0,1       1,1,1
+    z	x	-y      2,0,1       1,1,-1
+    z	-x	y       2,0,1       1,-1,1
+    z	-x	-y      2,0,1       1,-1,-1
+    z	y	x       2,1,0       1,1,1
+    z	y	-x      2,1,0       1,1,-1
+    z	-y	x       2,1,0       1,-1,1
+    z	-y	-x      2,1,0       1,-1,-1
+    -z	x	y       2,0,1       -1,1,1
+    -z	x	-y      2,0,1       -1,1,-1
+    -z	-x	y       2,0,1       -1,-1,1
+    -z	-x	-y      2,0,1       -1,-1,-1
+    -z	y	x       2,1,0       -1,1,1
+    -z	y	-x      2,1,0       -1,1,-1
+    -z	-y	x       2,1,0       -1,-1,1
+    -z	-y	-x      2,1,0       -1,-1,-1
+

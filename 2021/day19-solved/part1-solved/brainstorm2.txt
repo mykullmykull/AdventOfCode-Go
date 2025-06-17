@@ -1,0 +1,19 @@
+My initial draft made a bad assumption that every sensor would have 12 overlapping beacons with s0
+
+We need another level matching each sensor another sensor's perspective, then back to s0
+track a map of all sensors solved to s0's perspective
+    start with s0  which is still our baseline where we'll collect all unique beacons
+
+loop until len(map) == len(sensors)
+    for each sensor "unsolved"
+        if solved, continue
+        loop through solved sensors "solved"
+            if they match, apply "solved"'s manipulator to "unsolved"'s manipulator 
+            ...so that it translates back to s0
+            translate "unsolved"'s beacons to s0's perspective
+            add "unsolved"'s beacons to s0's map
+
+func (unsolved *scanner) translateToS0(solved scanner)
+
+
+

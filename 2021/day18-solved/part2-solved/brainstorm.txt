@@ -1,0 +1,15 @@
+x   write test for add
+x   get AI to write add func
+
+x   write test for explode
+x   get AI to write explode func
+
+x   write test for split
+x   get AI to write split func
+
+x   write test for getMagnitude
+x   get AI to write getMagnitude func
+
+x   write test for reduce
+x   get AI to write reduce func
+
