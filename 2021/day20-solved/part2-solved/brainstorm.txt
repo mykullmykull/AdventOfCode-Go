@@ -1,0 +1,16 @@
+parse input
+    enhancementAlgorithm := first line of input
+    grid := all subsequent lines starting with the third line
+loop twice
+    add border of '.' around the grid
+    add another border of '.' around the grid
+    build new grid of the same size by...
+    loop row 1 to len(grid)-2
+        loop col 1 to len(grid[row])-2
+            currentCell := grid[row][col]
+            Grab 9 characters in a 3x3 square centered on the currentCell
+            convert those 9 characters to binary (. = 0, # = 1)
+            convert binary to decimal index
+            get char at decimal index in the enhancement algorithm
+            add char to new grid at row, col
+
